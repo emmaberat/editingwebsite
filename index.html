@@ -1,1 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma O. Bérat | Academic Editing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --secondary: #CC4B3C;
+            --light-bg: #F8F5F0;
+            --dark-text: #333333;
+            --light-text: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--light-text);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #b34033;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            margin-left: 1.5rem;
+            text-decoration: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-bg);
+            padding: 7rem 0 3rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            text-align: left;
+        }
+        
+        .headshot {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+        }
+        
+        /* Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .strengths {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .strength {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            padding: 1.5rem;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .step {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .step-number {
+            background-color: var(--primary);
+            color: var(--light-text);
+            min-width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .policy-box {
+            background-color: var(--light-bg);
+            padding: 1.8rem;
+            border-radius: 8px;
+            margin: 1.8rem 0;
+        }
+        
+        .larger-projects {
+            margin-top: 1.5rem;
+            padding-left: 0.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 200px;
+        }
+        
+        .testimonial {
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        blockquote {
+            font-style: italic;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--primary);
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: var(--primary);
+            color: var(--light-text);
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .contact h2 {
+            color: var(--light-text);
+        }
+        
+        footer {
+            background-color: #333333;
+            color: var(--light-text);
+            padding: 1.8rem 0;
+            text-align: center;
+        }
+
+        .credentials {
+            margin-top: 1rem;
+        }
+        
+        /* Compact Expertise Section */
+        .expertise {
+            background-color: var(--light-bg);
+        }
+        
+        .expertise-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .expertise-list {
+            margin-bottom: 1.8rem;
+            text-align: center;
+        }
+        
+        .expertise-list h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .expertise-items {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        /* EFA Logo Styling */
+        .efa-logo {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .efa-logo img {
+            height: 50px;
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        
+        .efa-logo img:hover {
+            opacity: 1;
+        }
+        
+        .logo-label {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Logo Upload Instructions */
+        .logo-instructions {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .logo-instructions h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .efa-logo {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .hero {
+                padding: 6rem 0 2.5rem;
+            }
+            
+            section {
+                padding: 2.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Emma O. Bérat, PhD</div>
+            <div class="nav-links">
+                <a href="#expertise">Expertise</a>
+                <a href="#process">Process</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Developmental & Line Editing</h1>
+            <div class="hero-subtitle"><strong><em>for Research that Makes a Difference</em></strong></div>
+            <p>Helping scholars communicate their research with clarity and impact through collaborative editing.</p>
+            <a href="#contact" class="btn">Request a Quote</a>
+            
+            <div class="profile-container">
+                <img src="https://placehold.co/400x400?text=Emma+Bérat" alt="Emma O. Bérat" class="headshot">
+                <div>
+                    <p>With eight years of experience as a full-time freelance editor, I specialize in developmental and line editing for academic researchers who are striving to make the world a better place. I work to amplify your scholarly voice and to revise for clarity and impact.</p>
+                    <p>I see my role as an "intellectual doula"—an intermediary between you and your ideal audience who supports you through the process of bringing your ideas into the world with originality and strength. My goal is to help your research stand out by refining your argument and making sure your manuscript has the precision, logic, and vigor required for successful publication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY DIFFERENTIATORS -->
+    <section class="container">
+        <h2 class="section-title">Why Choose Me</h2>
+        <div class="strengths">
+            <div class="strength">
+                <h3>Insider's Perspective</h3>
+                <p>With a PhD from Columbia University and a book published with Cambridge University Press, I have a deep understanding of the academic ecosystem. I have served as a reviewer and guest editor for peer-reviewed journals and helped many clients publish in leading international journals. I've had the privilege of working with academics from a wide range of fields, including a Nobel Prize winner, as well as with non-profits and organizations, including the United Nations.</p>
+            </div>
+            <div class="strength">
+                <h3>Multinational Expertise</h3>
+                <p>Originally from New Zealand, I grew up in southeast Asia, studied in the United Kingdom and United States, and currently live in France. As an editor, I am especially committed to helping non-native English speakers communicate with confidence, clarity, and authenticity. I am comfortable with American and British language conventions.</p>
+            </div>   
+        </div>
+    </section>
+
+    <!-- EXPERTISE SECTION -->
+    <section id="expertise" class="expertise">
+        <div class="container expertise-content">
+            <h2 class="section-title">Areas of particular interest</h2>
+            
+            <div class="expertise-list">
+                <h3>Subject Areas</h3>
+                <p class="expertise-items">
+                    Sociology, Anthropology, Cultural Studies, Qualitative Research Methods, Ethnography, Religion, 
+                    Women & Gender Studies, Labour Studies, Social Justice, Human Rights, Migration & Refugee Studies, 
+                    Family Studies, Child Welfare, Children's Rights, Elderly Care, Social Work, Travel & Tourism
+                </p>
+            </div>
+            
+            <div class="expertise-list">
+                <h3>Document Types</h3>
+                <p class="expertise-items">
+                    Research Articles, Book Proposals, Grant Applications, Conference Papers, 
+                    University Applications, PhD Theses / Dissertations
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="process" style="background-color: #F8F5F0;">
+        <div class="container">
+            <h2 class="section-title">The Process</h2>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Send Your Document</h3>
+                        <p>Email me your manuscript and any relevant details (target journal, reviewer comments). I'll reply within 24 hours with an estimate of cost or further questions, if needed. For longer projects, let’s have a Zoom call.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Receive a Quote</h3>
+                        <p>My rates are based on an hourly fee:</p>
+                        <ul>
+                            <li>€45 (US$50)/hour for students and non-tenured researchers</li>
+                            <li>€55 (US$60)/hour for tenured researchers, businesses, and organizations</li>
+                        </ul>
+<p><em>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please get in touch anyway.</em></p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Get a Fast Turnaround</h3>
+                        <p>For documents under 10,000 words, I typically return edits within one week.</p>
+                        <p>Need it faster? Depending on availability, I may be able to return your manuscript in 48 hours for an extra fee.</p>
+                    </div>
+                </div>
+            </div>
+                       
+            <div class="policy-box">
+                <h3>Confidentiality & AI Policy</h3>
+                <p>Your unpublished work is confidential. I do not share it, discuss it, or use it for any purpose other than your editing.</p>
+                <p>I do not use generative AI in my work. Your text is never uploaded to any AI platform. My feedback and edits come solely from my own assessment.</p>
+                <p>I encourage minimal use of AI in your text as it often flattens voice, and expert readers can detect its use.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-container">
+            <div class="testimonial active">
+                <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
+                <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
+            </div>
+            <div class="testimonial">
+                <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eu ultricies lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc eu nisl. Emma's developmental editing transformed my dissertation into a publishable manuscript."</blockquote>
+                <footer>— XXX</footer>
+            </div>
+            <div class="testimonial">
+                <blockquote>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Working with Emma was a game-changer for my research article. Her line editing not only improved the language but also enhanced the flow and impact of my argument."</blockquote>
+                <footer>— XXX</footer>
+            </div>
+        </div>
+        <div class="testimonial-controls">
+            <div class="testimonial-dot active" data-index="0"></div>
+            <div class="testimonial-dot" data-index="1"></div>
+            <div class="testimonial-dot" data-index="2"></div>
+        </div>
+    </section>
+
+    <!-- HOW TO ADD EFA LOGO SECTION -->
+    <section class="container">
+        <h2 class="section-title">Adding Your EFA Logo</h2>
+        <div class="logo-instructions">
+            <h3>How to incorporate your EFA logo:</h3>
+            <p>To add your EFA logo to the website, follow these steps:</p>
+            <ol>
+                <li>Create a folder named "images" in the same directory as your HTML file</li>
+                <li>Place your EFA logo PNG file in this folder</li>
+                <li>Rename the logo to "efa-logo.png" (or update the code below with your filename)</li>
+                <li>Replace the current placeholder image code with this code:</li>
+            </ol>
+            
+            <div class="code-block">
+                &lt;img src="images/efa-logo.png" alt="Editorial Freelancers Association Member Logo"&gt;
+            </div>
+            
+            <p>If you prefer to keep the logo in the same directory as your HTML file, use this code instead:</p>
+            
+            <div class="code-block">
+                &lt;img src="efa-logo.png" alt="Editorial Freelancers Association Member Logo"&gt;
+            </div>
+            
+            <p>Here's what it will look like (with a placeholder for now):</p>
+            
+            <!-- EFA Logo Placement -->
+            <div class="efa-logo">
+                <span class="logo-label"></span>
+                <a href="https://www.the-efa.org/" target="_blank" rel="noopener">
+                    <!-- Placeholder for EFA logo - replace with your actual logo -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiIGZpbGw9IiMwYTI0NjMiIHJ4PSI1Ii8+PHRleHQgeD0iNzUiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkVGQSBMT0dPPC90ZXh0Pjwvc3ZnPg==" alt="Editorial Freelancers Association Member Logo">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Email me your project details to receive a quote within 24 hours.</p>
+            <a href="mailto:editor.emmaberat@gmail.com?subject=Editing Quote Request: [Project Title]" class="btn">Email Your Project & Get a Quote</a>
+            <p style="margin-top: 2rem; font-size: 0.9rem;">Or contact me at editor.emmaberat@gmail.com. I handle all inquiries personally and respond within 24 hours.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Emma O. Bérat, PhD</p>
+            <div class="credentials">
+                <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
+                <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
+            </div>
+            
+            <!-- EFA Logo Placement -->
+            <div class="efa-logo">
+                <span class="logo-label">Proud Member:</span>
+                <a href="https://www.the-efa.org/" target="_blank" rel="noopener">
+                    <!-- Placeholder for EFA logo - replace with your actual logo -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iNTAiIGZpbGw9IiMwYTI0NjMiIHJ4PSI1Ii8+PHRleHQgeD0iNzUiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkVGQSBMT0dPPC90ZXh0Pjwvc3ZnPg==" alt="Editorial Freelancers Association Member Logo">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Testimonial rotation
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            let currentIndex = 0;
+            
+            function showTestimonial(index) {
+                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                testimonials[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentIndex = index;
+            }
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    showTestimonial(index);
+                });
+            });
+            
+            // Auto-rotate testimonials every 5 seconds
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                showTestimonial(currentIndex);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
 
