@@ -11,53 +11,53 @@
     <style>
         :root {
             --primary: #0A2463;
-            --secondary: #A34236;
+            --secondary: #A34236; /* Slightly darker for better contrast */
             --light-bg: #F8F5F0;
             --dark-text: #333333;
             --light-text: #FFFFFF;
             --transition: all 0.3s ease;
-            --section-spacing: 2.5rem;
-            --element-spacing: 1.5rem;
+            --section-spacing: 2.5rem; /* Consistent section spacing */
+            --element-spacing: 1.5rem; /* Consistent element spacing */
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 80px; /* Account for fixed header */
         }
-
+        
         body {
             font-family: 'Inter', sans-serif;
             color: var(--dark-text);
             line-height: 1.6;
         }
-
+        
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        p, ul, ol {
             margin-bottom: 0.75rem;
         }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-
+        
         section {
             padding: var(--section-spacing) 0;
-            scroll-margin-top: 80px;
+            scroll-margin-top: 80px; /* Account for fixed header */
         }
-
+        
         .btn {
             display: inline-block;
             background-color: var(--secondary);
@@ -72,17 +72,17 @@
             font-size: 1rem;
             margin-top: 0.5rem;
         }
-
+        
         .btn:hover, .btn:focus {
             background-color: #8A2B20;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
+        
         .btn:active {
             transform: translateY(0);
         }
-
+        
         /* Header */
         header {
             background-color: var(--primary);
@@ -94,7 +94,7 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
+        
         nav {
             display: flex;
             justify-content: space-between;
@@ -103,18 +103,18 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-
+        
         .logo {
             font-family: 'Playfair Display', serif;
             font-weight: bold;
             font-size: 1.2rem;
         }
-
+        
         .nav-links {
             display: flex;
             gap: 1.5rem;
         }
-
+        
         .nav-links a {
             color: var(--light-text);
             text-decoration: none;
@@ -122,7 +122,7 @@
             padding: 0.5rem 0;
             position: relative;
         }
-
+        
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -133,12 +133,12 @@
             background-color: var(--light-text);
             transition: var(--transition);
         }
-
+        
         .nav-links a:hover:after, 
         .nav-links a:focus:after {
             width: 100%;
         }
-
+        
         .menu-toggle {
             display: none;
             background: none;
@@ -147,32 +147,32 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-
+        
         /* Hero Section */
         .hero {
             background-color: var(--light-bg);
-            padding: 4rem 0 1.75rem; /* reduced */
+            padding: 6rem 0 2.5rem;
             text-align: center;
         }
-
+        
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
         }
-
+        
         .hero h1 {
             font-size: clamp(1.8rem, 5vw, 2.3rem);
             margin-bottom: 0.75rem;
             line-height: 1.3;
         }
-
+        
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.5rem);
             color: var(--primary);
             margin-bottom: 1.25rem;
             font-weight: 300;
         }
-
+        
         .profile-container {
             display: flex;
             align-items: center;
@@ -181,7 +181,7 @@
             margin-top: 2rem;
             text-align: left;
         }
-
+        
         .headshot {
             width: 160px;
             height: 160px;
@@ -189,21 +189,21 @@
             object-fit: cover;
             border: 4px solid var(--primary);
         }
-
+        
         /* Sections */
         .section-title {
             text-align: center;
-            margin-bottom: 1rem; /* reduced */
+            margin-bottom: 1.25rem;
         }
-
+        
         .strengths {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.5rem;
-            margin-top: 1rem; /* reduced */
+            margin-top: 1.5rem;
         }
-
+        
         .strength {
             flex: 1;
             min-width: 250px;
@@ -212,29 +212,29 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             transition: var(--transition);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
-
+        
         .strength:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-
+        
         .process-steps {
             display: flex;
             flex-direction: column;
-            gap: 1rem; /* reduced */
+            gap: 0.75rem;
             max-width: 800px;
-            margin: 1rem auto; /* reduced */
+            margin: 1.5rem auto;
         }
-
+        
         .step {
             display: flex;
             align-items: start;
             gap: 1rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
-
+        
         .step-number {
             background-color: var(--primary);
             color: var(--light-text);
@@ -248,19 +248,19 @@
             flex-shrink: 0;
             font-weight: 500;
         }
-
+        
         .policy-box {
             background-color: var(--light-bg);
             padding: 1.5rem;
             border-radius: 8px;
-            margin: 1rem 0; /* reduced */
+            margin: 1rem 0;
         }
-
+        
         .larger-projects {
             margin-top: 1rem;
             padding-left: 0.5rem;
         }
-
+        
         /* Testimonials */
         .testimonial-container {
             max-width: 800px;
@@ -268,22 +268,22 @@
             position: relative;
             min-height: 200px;
         }
-
+        
         .testimonial {
             text-align: center;
             animation: fadeIn 0.5s;
             display: none;
         }
-
+        
         .testimonial.active {
             display: block;
         }
-
+        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
+        
         blockquote {
             font-style: italic;
             color: var(--dark-text);
@@ -292,7 +292,7 @@
             position: relative;
             padding: 0 2rem;
         }
-
+        
         blockquote:before, blockquote:after {
             content: '"';
             font-size: 3rem;
@@ -300,24 +300,24 @@
             color: var(--secondary);
             opacity: 0.2;
         }
-
+        
         blockquote:before {
             left: 0;
             top: -1rem;
         }
-
+        
         blockquote:after {
             right: 0;
             bottom: -2rem;
         }
-
+        
         .testimonial-controls {
             display: flex;
             justify-content: center;
             gap: 0.5rem;
             margin-top: 1.5rem;
         }
-
+        
         .testimonial-dot {
             width: 12px;
             height: 12px;
@@ -327,25 +327,25 @@
             transition: var(--transition);
             border: none;
         }
-
+        
         .testimonial-dot.active, .testimonial-dot:hover {
             background-color: var(--primary);
             transform: scale(1.2);
         }
-
+        
         /* Contact */
         .contact {
             background-color: var(--primary);
             color: var(--light-text);
             text-align: center;
-            padding: 2rem 0; /* reduced */
+            padding: 2.5rem 0;
         }
-
+        
         .contact h2 {
             color: var(--light-text);
             margin-bottom: 1rem;
         }
-
+        
         footer {
             background-color: #333333;
             color: var(--light-text);
@@ -356,34 +356,34 @@
         .credentials {
             margin-top: 1rem;
         }
-
+        
         /* Compact Expertise Section */
         .expertise {
             background-color: var(--light-bg);
         }
-
+        
         .expertise-content {
             max-width: 900px;
             margin: 0 auto;
         }
-
+        
         .expertise-list {
             margin-bottom: 1.5rem;
             text-align: center;
         }
-
+        
         .expertise-list h3 {
             color: var(--secondary);
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
         }
-
+        
         .expertise-items {
             font-size: 0.95rem;
             line-height: 1.5;
             color: #555;
         }
-
+        
         /* EFA Logo Styling */
         .efa-logo {
             margin-top: 1.25rem;
@@ -392,19 +392,24 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .efa-logo img {
             height: 50px;
             width: auto;
             opacity: 0.9;
             transition: var(--transition);
         }
-
+        
         .efa-logo img:hover {
             opacity: 1;
             transform: scale(1.05);
         }
-
+        
+        .logo-label {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
         /* Loading animation for testimonials */
         .testimonial-loading {
             display: inline-block;
@@ -416,44 +421,61 @@
             animation: spin 0.8s ease infinite;
             margin-left: 5px;
         }
-
+        
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
+        
         /* Focus styles for accessibility */
         a:focus, button:focus {
             outline: 2px solid var(--secondary);
             outline-offset: 2px;
         }
-
+        
         /* Improved spacing utilities */
         .mt-1 { margin-top: 0.75rem; }
         .mb-1 { margin-bottom: 0.75rem; }
         .mt-2 { margin-top: 1.25rem; }
         .mb-2 { margin-bottom: 1.25rem; }
-
+        
+        /* Context-aware spacing utilities */
+        .spacing-tight > * {
+            margin-bottom: 0.5rem;
+        }
+        
+        .spacing-tight > *:last-child {
+            margin-bottom: 0;
+        }
+        
+        .spacing-relaxed > * {
+            margin-bottom: 1rem;
+        }
+        
+        .spacing-relaxed > *:last-child {
+            margin-bottom: 0;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             :root {
                 --section-spacing: 2rem;
                 --element-spacing: 1.25rem;
             }
-
+            
             .container {
                 padding: 0 1.5rem;
             }
-
+            
             .profile-container {
                 flex-direction: column;
                 text-align: center;
                 gap: 1.5rem;
             }
-
+            
             .menu-toggle {
                 display: block;
             }
-
+            
             .nav-links {
                 position: fixed;
                 top: 60px;
@@ -467,48 +489,48 @@
                 transition: var(--transition);
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
-
+            
             .nav-links.active {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             }
-
+            
             .nav-links a {
                 padding: 1rem 2rem;
                 width: 100%;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
-
+            
             .nav-links a:last-child {
                 border-bottom: none;
             }
-
+            
             .efa-logo {
                 flex-direction: column;
                 gap: 0.8rem;
             }
-
+            
             .hero {
-                padding: 3.5rem 0 1.5rem; /* reduced */
+                padding: 5.5rem 0 2rem;
             }
-
+            
             .strengths {
                 flex-direction: column;
             }
-
+            
             .step {
                 flex-direction: column;
                 text-align: center;
             }
-
+            
             .step-number {
                 align-self: center;
                 margin-bottom: 0.5rem;
             }
-
+            
             .testimonial-container {
                 min-height: 280px;
             }
-
+            
             .headshot {
                 width: 140px;
                 height: 140px;
@@ -519,29 +541,29 @@
             :root {
                 --section-spacing: 1.75rem;
             }
-
+            
             .headshot {
                 width: 120px;
                 height: 120px;
             }
-
+            
             .btn {
                 padding: 0.7rem 1.5rem;
                 font-size: 0.9rem;
             }
-
+            
             .container {
                 padding: 0 1rem;
             }
-
+            
             .strength {
                 padding: 1.25rem;
             }
-
+            
             .policy-box {
                 padding: 1.25rem;
             }
-
+            
             blockquote {
                 padding: 0 1.5rem;
                 font-size: 1rem;
@@ -564,131 +586,144 @@
         </nav>
     </header>
 
-    <main>
-        <!-- HERO SECTION -->
-        <section class="hero">
-            <div class="container hero-content">
-                <h1>Developmental & Line Editing</h1>
-                <div class="hero-subtitle"><strong><em>for Research that Makes a Difference</em></strong></div>
-                <p>Helping scholars communicate their research with clarity and impact through collaborative editing.</p>
-                <a href="#contact" class="btn">Request a Quote</a>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content spacing-relaxed">
+            <h1>Developmental & Line Editing</h1>
+            <div class="hero-subtitle"><strong><em>for Research that Makes a Difference</em></strong></div>
+            <p>Helping scholars communicate their research with clarity and impact through collaborative editing.</p>
+            <a href="#contact" class="btn">Request a Quote</a>
+            
+            <div class="profile-container">
+                <img src="https://placehold.co/400x400?text=Emma+Bérat" alt="Emma O. Bérat - Academic Editor" class="headshot" loading="lazy">
+                <div>
+                    <p>With eight years of experience as a full-time freelance editor, I specialize in developmental and line editing for academic researchers who are striving to make the world a better place. I work to amplify your scholarly voice and to revise for clarity and impact.</p>
+                    <p>I see my role as an "intellectual doula"—an intermediary between you and your ideal audience who supports you through the process of bringing your ideas into the world with originality and strength. My goal is to help your research stand out by refining your argument and making sure your manuscript has the precision, logic, and vigor required for successful publication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="profile-container">
-                    <img src="https://placehold.co/400x400?text=Emma+Bérat" alt="Emma O. Bérat - Academic Editor" class="headshot" loading="lazy">
+    <!-- KEY DIFFERENTIATORS -->
+    <section class="container">
+        <h2 class="section-title">Why Choose Me</h2>
+        <div class="strengths">
+            <article class="strength">
+                <h3>Insider's Perspective</h3>
+                <p>With a PhD from Columbia University and a book published with Cambridge University Press, I have a deep understanding of the academic ecosystem. I have served as a reviewer and guest editor for peer-reviewed journals and helped many clients publish in leading international journals. I've had the privilege of working with academics from a wide range of fields, including a Nobel Prize winner, as well as with non-profits and organizations, including the United Nations.</p>
+            </article>
+            <article class="strength">
+                <h3>Multinational Expertise</h3>
+                <p>Originally from New Zealand, I grew up in southeast Asia, studied in the United Kingdom and United States, and currently live in France. As an editor, I am especially committed to helping non-native English speakers communicate with confidence, clarity, and authenticity. I am comfortable with American and British language conventions.</p>
+            </article>   
+        </div>
+    </section>
+
+    <!-- EXPERTISE SECTION -->
+    <section id="expertise" class="expertise">
+        <div class="container expertise-content">
+            <h2 class="section-title">Areas of particular interest</h2>
+            
+            <div class="expertise-list">
+                <h3>Subject Areas</h3>
+                <p class="expertise-items">
+                    Sociology, Anthropology, Cultural Studies, Qualitative Research Methods, Ethnography, Religion, 
+                    Women & Gender Studies, Labour Studies, Social Justice, Human Rights, Migration & Refugee Studies, 
+                    Family Studies, Child Welfare, Children's Rights, Elderly Care, Social Work, Travel & Tourism
+                </p>
+            </div>
+            
+            <div class="expertise-list">
+                <h3>Document Types</h3>
+                <p class="expertise-items">
+                    Research Articles, Book Proposals, Grant Applications, Conference Papers, 
+                    University Applications, PhD Theses / Dissertations
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="process" style="background-color: #F8F5F0;">
+        <div class="container">
+            <h2 class="section-title">The Process</h2>
+            
+            <div class="process-steps spacing-tight">
+                <article class="step">
+                    <div class="step-number">1</div>
                     <div>
-                        <p class="mb-1">With eight years of experience as a full-time freelance editor, I specialize in developmental and line editing for academic researchers who are striving to make the world a better place. I work to amplify your scholarly voice and to revise for clarity and impact.</p>
-                        <p>I see my role as an "intellectual doula"—an intermediary between you and your ideal audience who supports you through the process of bringing your ideas into the world with originality and strength. My goal is to help your research stand out by refining your argument and making sure your manuscript has the precision, logic, and vigor required for successful publication.</p>
+                        <h3>Send Your Document</h3>
+                        <p>Email me your manuscript and any relevant details (target journal, reviewer comments). I'll reply within 24 hours with an estimate of cost or further questions, if needed. For longer projects, let's have a Zoom call.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- KEY DIFFERENTIATORS -->
-        <section class="container">
-            <h2 class="section-title">Why Choose Me</h2>
-            <div class="strengths">
-                <div class="strength">
-                    <h3>Insider's Perspective</h3>
-                    <p>With a PhD from Columbia University and a book published with Cambridge University Press, I have a deep understanding of the academic ecosystem...</p>
-                </div>
-                <div class="strength">
-                    <h3>Multinational Expertise</h3>
-                    <p>Originally from New Zealand, I grew up in southeast Asia, studied in the United Kingdom and United States, and currently live in France...</p>
-                </div>   
-            </div>
-        </section>
-
-        <!-- EXPERTISE SECTION -->
-        <section id="expertise" class="expertise">
-            <div class="container expertise-content">
-                <h2 class="section-title">Areas of particular interest</h2>
-                <div class="expertise-list">
-                    <h3>Subject Areas</h3>
-                    <p class="expertise-items">
-                        Sociology, Anthropology, Cultural Studies, Qualitative Research Methods...
-                    </p>
-                </div>
-                <div class="expertise-list">
-                    <h3>Document Types</h3>
-                    <p class="expertise-items">
-                        Research Articles, Book Proposals, Grant Applications...
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROCESS SECTION -->
-        <section id="process" style="background-color: #F8F5F0;">
-            <div class="container">
-                <h2 class="section-title">The Process</h2>
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div>
-                            <h3>Request a Quote</h3>
-                            <p>Send me your manuscript, and I’ll provide a detailed quote tailored to your project’s needs.</p>
-                        </div>
+                </article>
+                <article class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Receive a Quote</h3>
+                        <p>My rates are based on an hourly fee:</p>
+                        <ul>
+                            <li>€45 (US$50)/hour for students and non-tenured researchers</li>
+                            <li>€55 (US$60)/hour for tenured researchers, businesses, and organizations</li>
+                        </ul>
+                        <p><em>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please get in touch anyway.</em></p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div>
-                            <h3>Collaborative Editing</h3>
-                            <p>I edit your text directly and provide feedback to strengthen argumentation, structure, and clarity.</p>
-                        </div>
+                </article>
+                <article class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Get a Fast Turnaround</h3>
+                        <p>For documents under 10,000 words, I typically return edits within one week.</p>
+                        <p>Need it faster? Depending on availability, I may be able to return your manuscript in 48 hours for an extra fee.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div>
-                            <h3>Final Refinement</h3>
-                            <p>You receive a polished manuscript ready for peer review, submission, or publication.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="policy-box">
-                    <h3>Confidentiality & AI Policy</h3>
-                    <p>Your unpublished work is confidential. I never share client documents and never use generative AI tools in my editing process.</p>
-                </div>
-
-                <div class="mt-2" style="text-align:center;">
-                    <a href="#contact" class="btn">Get Started Today</a>
-                </div>
+                </article>
             </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section id="testimonials" class="container">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonial-container">
-                <div class="testimonial active">
-                    <blockquote>Emma has an extraordinary gift for clarity. She not only helped me streamline my argument but also gave me the confidence that my work would be understood across disciplines.</blockquote>
-                    <p><strong>— Associate Professor of Sociology</strong></p>
-                </div>
-                <div class="testimonial">
-                    <blockquote>I’ve worked with other editors, but Emma’s feedback was on another level—she understood exactly what I wanted to say and helped me get there.</blockquote>
-                    <p><strong>— Early Career Anthropologist</strong></p>
-                </div>
-                <div class="testimonial">
-                    <blockquote>Emma’s edits were transformative. My article was accepted with minimal revisions, and I know her careful line edits made the difference.</blockquote>
-                    <p><strong>— PhD Candidate, Cultural Studies</strong></p>
-                </div>
-                <div class="testimonial-controls">
-                    <button class="testimonial-dot active" aria-label="View testimonial 1"></button>
-                    <button class="testimonial-dot" aria-label="View testimonial 2"></button>
-                    <button class="testimonial-dot" aria-label="View testimonial 3"></button>
-                </div>
+                       
+            <article class="policy-box spacing-tight">
+                <h3>Confidentiality & AI Policy</h3>
+                <p>Your unpublished work is confidential. I do not share it, discuss it, or use it for any purpose other than your editing.</p>
+                <p>I do not use generative AI in my work. Your text is never uploaded to any AI platform. My feedback and edits come solely from my own assessment.</p>
+                <p>I encourage minimal use of AI in your text as it often flattens voice, and expert readers can detect its use.</p>
+            </article>
+            
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="#contact" class="btn">Get Started Today</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CONTACT -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Work With Me</h2>
-                <p>I look forward to learning more about your project. Request a quote or ask a question:</p>
-                <a href="mailto:emma.berat@gmail.com" class="btn">emma.berat@gmail.com</a>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-container">
+            <div class="testimonial active">
+                <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
+                <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
             </div>
-        </section>
-    </main>
+            <div class="testimonial">
+                <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eu ultricies lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc eu nisl. Emma's developmental editing transformed my dissertation into a publishable manuscript."</blockquote>
+                <footer>— XXX</footer>
+            </div>
+            <div class="testimonial">
+                <blockquote>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Working with Emma was a game-changer for my research article. Her line editing not only improved the language but also enhanced the flow and impact of my argument."</blockquote>
+                <footer>— XXX</footer>
+            </div>
+        </div>
+        <div class="testimonial-controls">
+            <button class="testimonial-dot active" data-index="0" aria-label="Show testimonial 1"></button>
+            <button class="testimonial-dot" data-index="1" aria-label="Show testimonial 2"></button>
+            <button class="testimonial-dot" data-index="2" aria-label="Show testimonial 3"></button>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Email me your project details to receive a quote within 24 hours.</p>
+            <a href="mailto:editor.emmaberat@gmail.com?subject=Editing Quote Request: [Project Title]" class="btn">Email Your Project & Get a Quote</a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem;">Or contact me at editor.emmaberat@gmail.com. I handle all inquiries personally and respond within 24 hours.</p>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -698,48 +733,112 @@
                 <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
                 <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
             </div>
+            
+            <!-- EFA Logo Placement - Updated with actual logo -->
             <div class="efa-logo">
+                <span class="logo-label"></span>
                 <img src="navy-poppy_member-logo-trans.png" alt="Editorial Freelancers Association Member Logo" loading="lazy">
             </div>
         </div>
     </footer>
 
     <script>
-        // MOBILE MENU TOGGLE
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    const isExpanded = navLinks.classList.contains('active');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+            
+            // Close menu when clicking on a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Testimonial rotation
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            let currentIndex = 0;
+            let testimonialInterval;
+            
+            function showTestimonial(index) {
+                // Add loading animation during transition
+                const container = document.querySelector('.testimonial-container');
+                container.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    
+                    testimonials[index].classList.add('active');
+                    dots[index].classList.add('active');
+                    currentIndex = index;
+                    
+                    container.style.opacity = '1';
+                }, 300);
+            }
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    showTestimonial(index);
+                    
+                    // Reset auto-rotation
+                    clearInterval(testimonialInterval);
+                    testimonialInterval = setInterval(rotateTestimonials, 8000);
+                });
+            });
+            
+            function rotateTestimonials() {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                showTestimonial(currentIndex);
+            }
+            
+            // Auto-rotate testimonials every 8 seconds
+            testimonialInterval = setInterval(rotateTestimonials, 8000);
+            
+            // Pause rotation when hovering over testimonials
+            const testimonialContainer = document.querySelector('.testimonial-container');
+            testimonialContainer.addEventListener('mouseenter', () => {
+                clearInterval(testimonialInterval);
+            });
+            
+            testimonialContainer.addEventListener('mouseleave', () => {
+                testimonialInterval = setInterval(rotateTestimonials, 8000);
+            });
+            
+            // Smooth scroll for anchor links with offset for fixed header
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
-
-        // TESTIMONIAL ROTATION
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.testimonial-dot');
-        let currentTestimonial = 0;
-
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.classList.toggle('active', i === index);
-                dots[i].classList.toggle('active', i === index);
-            });
-            currentTestimonial = index;
-        }
-
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => showTestimonial(i));
-        });
-
-        setInterval(() => {
-            let next = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(next);
-        }, 8000);
     </script>
 </body>
 </html>
