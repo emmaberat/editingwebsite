@@ -385,22 +385,24 @@
         }
         
         /* EFA Logo Styling */
-        .efa-logo {
+        .efa-logo-container {
             margin-top: 1.25rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
+            width: 100%;
         }
         
-        .efa-logo img {
+        .efa-logo {
             height: 50px;
             width: auto;
+            max-width: 100%;
             opacity: 0.9;
             transition: var(--transition);
+            display: block;
         }
         
-        .efa-logo img:hover {
+        .efa-logo:hover {
             opacity: 1;
             transform: scale(1.05);
         }
@@ -437,6 +439,19 @@
         .mb-1 { margin-bottom: 0.75rem; }
         .mt-2 { margin-top: 1.25rem; }
         .mb-2 { margin-bottom: 1.25rem; }
+        
+        /* New styles for the EFA logo width matching */
+        .credentials-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .credentials-text {
+            white-space: nowrap;
+            display: inline-block;
+        }
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -487,7 +502,7 @@
                 border-bottom: none;
             }
             
-            .efa-logo {
+            .efa-logo-container {
                 flex-direction: column;
                 gap: 0.8rem;
             }
@@ -517,6 +532,12 @@
             .headshot {
                 width: 140px;
                 height: 140px;
+            }
+            
+            /* Adjust credentials text for mobile */
+            .credentials-text {
+                white-space: normal;
+                text-align: center;
             }
         }
 
@@ -550,6 +571,10 @@
             blockquote {
                 padding: 0 1.5rem;
                 font-size: 1rem;
+            }
+            
+            .credentials-text {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -712,15 +737,18 @@
     <footer>
         <div class="container">
             <p>© 2025 Emma O. Bérat, PhD</p>
-            <div class="credentials">
-                <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
-                <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
-            </div>
             
-            <!-- EFA Logo Placement - Updated with actual logo -->
-            <div class="efa-logo">
-                <span class="logo-label"></span>
-                <img src="navy-poppy_member-logo-trans.png" alt="Editorial Freelancers Association Member Logo" loading="lazy">
+            <!-- Updated credentials section with container -->
+            <div class="credentials-container">
+                <div class="credentials-text" id="credentialText">
+                    <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
+                    <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
+                </div>
+                
+                <!-- EFA Logo Placement -->
+                <div class="efa-logo-container">
+                    <img src="https://via.placeholder.com/400x80/0A2463/FFFFFF?text=EFA+Logo" alt="Editorial Freelancers Association Member Logo" class="efa-logo" id="efaLogo" loading="lazy">
+                </div>
             </div>
         </div>
     </footer>
@@ -821,6 +849,24 @@
                     }
                 });
             });
+            
+            // Function to set EFA logo width to match credentials text
+            function resizeEfaLogo() {
+                const credentialText = document.getElementById('credentialText');
+                const efaLogo = document.getElementById('efaLogo');
+                
+                if (credentialText && efaLogo) {
+                    // Get the width of the credential text
+                    const textWidth = credentialText.offsetWidth;
+                    
+                    // Set the logo width to match the text width
+                    efaLogo.style.width = textWidth + 'px';
+                }
+            }
+            
+            // Call the function on load and when window is resized
+            resizeEfaLogo();
+            window.addEventListener('resize', resizeEfaLogo);
         });
     </script>
 </body>
