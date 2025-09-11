@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emma O. Bérat, PhD - Academic editing services for research that makes a difference. Developmental and line editing for scholars.">
     <title>Emma O. Bérat | Academic Editing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0A2463;
-            --secondary: #CC4B3C;
+            --secondary: #A34236; /* Slightly darker for better contrast */
             --light-bg: #F8F5F0;
             --dark-text: #333333;
             --light-text: #FFFFFF;
+            --transition: all 0.3s ease;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Account for fixed header */
         }
         
         body {
@@ -44,6 +53,7 @@
         
         section {
             padding: 3rem 0;
+            scroll-margin-top: 80px; /* Account for fixed header */
         }
         
         .btn {
@@ -54,11 +64,20 @@
             text-decoration: none;
             border-radius: 4px;
             font-weight: 500;
-            transition: background-color 0.3s;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
         
-        .btn:hover {
-            background-color: #b34033;
+        .btn:hover, .btn:focus {
+            background-color: #8A2B20;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
         }
         
         /* Header */
@@ -70,6 +89,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         nav {
@@ -87,10 +107,42 @@
             font-size: 1.2rem;
         }
         
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
         .nav-links a {
             color: var(--light-text);
-            margin-left: 1.5rem;
             text-decoration: none;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--light-text);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after, 
+        .nav-links a:focus:after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
         
         /* Hero Section */
@@ -106,13 +158,13 @@
         }
         
         .hero h1 {
-            font-size: 2.3rem;
+            font-size: clamp(1.8rem, 5vw, 2.3rem);
             margin-bottom: 1rem;
             line-height: 1.3;
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             color: var(--primary);
             margin-bottom: 1.5rem;
             font-weight: 300;
@@ -156,6 +208,12 @@
             padding: 1.5rem;
             background-color: var(--light-bg);
             border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .strength:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .process-steps {
@@ -175,13 +233,15 @@
         .step-number {
             background-color: var(--primary);
             color: var(--light-text);
-            min-width: 30px;
-            height: 30px;
+            min-width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Inter', sans-serif;
+            flex-shrink: 0;
+            font-weight: 500;
         }
         
         .policy-box {
@@ -206,7 +266,12 @@
         
         .testimonial {
             text-align: center;
-            animation: fadeIn 1s;
+            animation: fadeIn 0.5s;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
         }
         
         @keyframes fadeIn {
@@ -219,6 +284,26 @@
             color: var(--dark-text);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        blockquote:before, blockquote:after {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            color: var(--secondary);
+            opacity: 0.2;
+        }
+        
+        blockquote:before {
+            left: 0;
+            top: -1rem;
+        }
+        
+        blockquote:after {
+            right: 0;
+            bottom: -2rem;
         }
         
         .testimonial-controls {
@@ -234,11 +319,13 @@
             border-radius: 50%;
             background-color: #ccc;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: var(--transition);
+            border: none;
         }
         
-        .testimonial-dot.active {
+        .testimonial-dot.active, .testimonial-dot:hover {
             background-color: var(--primary);
+            transform: scale(1.2);
         }
         
         /* Contact */
@@ -304,11 +391,12 @@
             height: 50px;
             width: auto;
             opacity: 0.9;
-            transition: opacity 0.3s;
+            transition: var(--transition);
         }
         
         .efa-logo img:hover {
             opacity: 1;
+            transform: scale(1.05);
         }
         
         .logo-label {
@@ -316,15 +404,70 @@
             color: #ccc;
         }
         
+        /* Loading animation for testimonials */
+        .testimonial-loading {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(10, 36, 99, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 0.8s ease infinite;
+            margin-left: 5px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
             .profile-container {
                 flex-direction: column;
                 text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .menu-toggle {
+                display: block;
             }
             
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: var(--transition);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links a {
+                padding: 1rem 2rem;
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .nav-links a:last-child {
+                border-bottom: none;
             }
             
             .efa-logo {
@@ -339,6 +482,39 @@
             section {
                 padding: 2.5rem 0;
             }
+            
+            .strengths {
+                flex-direction: column;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                align-self: center;
+            }
+            
+            .testimonial-container {
+                min-height: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .headshot {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -347,7 +523,8 @@
     <header>
         <nav>
             <div class="logo">Emma O. Bérat, PhD</div>
-            <div class="nav-links">
+            <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-links" id="navLinks">
                 <a href="#expertise">Expertise</a>
                 <a href="#process">Process</a>
                 <a href="#testimonials">Testimonials</a>
@@ -365,7 +542,7 @@
             <a href="#contact" class="btn">Request a Quote</a>
             
             <div class="profile-container">
-                <img src="https://placehold.co/400x400?text=Emma+Bérat" alt="Emma O. Bérat" class="headshot">
+                <img src="https://placehold.co/400x400?text=Emma+Bérat" alt="Emma O. Bérat - Academic Editor" class="headshot" loading="lazy">
                 <div>
                     <p>With eight years of experience as a full-time freelance editor, I specialize in developmental and line editing for academic researchers who are striving to make the world a better place. I work to amplify your scholarly voice and to revise for clarity and impact.</p>
                     <p>I see my role as an "intellectual doula"—an intermediary between you and your ideal audience who supports you through the process of bringing your ideas into the world with originality and strength. My goal is to help your research stand out by refining your argument and making sure your manuscript has the precision, logic, and vigor required for successful publication.</p>
@@ -423,7 +600,7 @@
                     <div class="step-number">1</div>
                     <div>
                         <h3>Send Your Document</h3>
-                        <p>Email me your manuscript and any relevant details (target journal, reviewer comments). I'll reply within 24 hours with an estimate of cost or further questions, if needed. For longer projects, let’s have a Zoom call.</p>
+                        <p>Email me your manuscript and any relevant details (target journal, reviewer comments). I'll reply within 24 hours with an estimate of cost or further questions, if needed. For longer projects, let's have a Zoom call.</p>
                     </div>
                 </div>
                 <div class="step">
@@ -435,7 +612,7 @@
                             <li>€45 (US$50)/hour for students and non-tenured researchers</li>
                             <li>€55 (US$60)/hour for tenured researchers, businesses, and organizations</li>
                         </ul>
-<p><em>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please get in touch anyway.</em></p>
+                        <p><em>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please get in touch anyway.</em></p>
                     </div>
                 </div>
                 <div class="step">
@@ -479,9 +656,9 @@
             </div>
         </div>
         <div class="testimonial-controls">
-            <div class="testimonial-dot active" data-index="0"></div>
-            <div class="testimonial-dot" data-index="1"></div>
-            <div class="testimonial-dot" data-index="2"></div>
+            <button class="testimonial-dot active" data-index="0" aria-label="Show testimonial 1"></button>
+            <button class="testimonial-dot" data-index="1" aria-label="Show testimonial 2"></button>
+            <button class="testimonial-dot" data-index="2" aria-label="Show testimonial 3"></button>
         </div>
     </section>
 
@@ -506,39 +683,108 @@
             
             <!-- EFA Logo Placement - Updated with actual logo -->
             <div class="efa-logo">
-                <img src="navy-poppy_member-logo-trans.png" alt="Editorial Freelancers Association Member Logo">
+                <span class="logo-label">Proud Member:</span>
+                <img src="navy-poppy_member-logo-trans.png" alt="Editorial Freelancers Association Member Logo" loading="lazy">
             </div>
         </div>
     </footer>
 
     <script>
-        // Testimonial rotation
+        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    const isExpanded = navLinks.classList.contains('active');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+            
+            // Close menu when clicking on a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Testimonial rotation
             const testimonials = document.querySelectorAll('.testimonial');
             const dots = document.querySelectorAll('.testimonial-dot');
             let currentIndex = 0;
+            let testimonialInterval;
             
             function showTestimonial(index) {
-                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
+                // Add loading animation during transition
+                const container = document.querySelector('.testimonial-container');
+                container.style.opacity = '0.7';
                 
-                testimonials[index].classList.add('active');
-                dots[index].classList.add('active');
-                currentIndex = index;
+                setTimeout(() => {
+                    testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    
+                    testimonials[index].classList.add('active');
+                    dots[index].classList.add('active');
+                    currentIndex = index;
+                    
+                    container.style.opacity = '1';
+                }, 300);
             }
             
             dots.forEach(dot => {
                 dot.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
                     showTestimonial(index);
+                    
+                    // Reset auto-rotation
+                    clearInterval(testimonialInterval);
+                    testimonialInterval = setInterval(rotateTestimonials, 8000);
                 });
             });
             
-            // Auto-rotate testimonials every 5 seconds
-            setInterval(() => {
+            function rotateTestimonials() {
                 currentIndex = (currentIndex + 1) % testimonials.length;
                 showTestimonial(currentIndex);
-            }, 5000);
+            }
+            
+            // Auto-rotate testimonials every 8 seconds
+            testimonialInterval = setInterval(rotateTestimonials, 8000);
+            
+            // Pause rotation when hovering over testimonials
+            const testimonialContainer = document.querySelector('.testimonial-container');
+            testimonialContainer.addEventListener('mouseenter', () => {
+                clearInterval(testimonialInterval);
+            });
+            
+            testimonialContainer.addEventListener('mouseleave', () => {
+                testimonialInterval = setInterval(rotateTestimonials, 8000);
+            });
+            
+            // Smooth scroll for anchor links with offset for fixed header
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
     </script>
 </body>
