@@ -11,13 +11,13 @@
     <style>
         :root {
             --primary: #0A2463;
-            --secondary: #A34236;
+            --secondary: #A34236; /* Slightly darker for better contrast */
             --light-bg: #F8F5F0;
             --dark-text: #333333;
             --light-text: #FFFFFF;
             --transition: all 0.3s ease;
-            --section-spacing: 2.5rem;
-            --element-spacing: 1.5rem;
+            --section-spacing: 2.5rem; /* Consistent section spacing */
+            --element-spacing: 1.5rem; /* Consistent element spacing */
         }
         
         * {
@@ -28,14 +28,13 @@
         
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 80px; /* Account for fixed header */
         }
         
         body {
             font-family: 'Inter', sans-serif;
             color: var(--dark-text);
             line-height: 1.6;
-            background-color: #f9f9f9;
         }
         
         h1, h2, h3, h4 {
@@ -56,7 +55,7 @@
         
         section {
             padding: var(--section-spacing) 0;
-            scroll-margin-top: 80px;
+            scroll-margin-top: 80px; /* Account for fixed header */
         }
         
         .btn {
@@ -80,6 +79,11 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Header */
         header {
             background-color: var(--primary);
             color: var(--light-text);
@@ -144,46 +148,29 @@
             cursor: pointer;
         }
         
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0A2463 0%, #1E40AF 100%);
-            color: var(--light-text);
-            padding: 7rem 0 3rem;
+            background-color: var(--light-bg);
+            padding: 6rem 0 2.5rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-            background-size: cover;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
         
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            font-size: clamp(1.8rem, 5vw, 2.3rem);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
         }
         
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--light-text);
-            margin-bottom: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--primary);
+            margin-bottom: 1.25rem;
             font-weight: 300;
-            opacity: 0.9;
         }
         
         .profile-container {
@@ -191,13 +178,8 @@
             align-items: center;
             justify-content: center;
             gap: 2rem;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             text-align: left;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .headshot {
@@ -205,111 +187,92 @@
             height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--light-text);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 4px solid var(--primary);
         }
         
+        /* Sections */
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--secondary);
+            margin-bottom: 1.75rem;
         }
         
         .strengths {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         
         .strength {
             flex: 1;
-            min-width: 280px;
-            max-width: 380px;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 12px;
+            min-width: 250px;
+            max-width: 350px;
+            padding: 1.5rem;
+            background-color: var(--light-bg);
+            border-radius: 8px;
             transition: var(--transition);
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--primary);
+            margin-bottom: 0.5rem;
         }
         
         .strength:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .process-steps {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.25rem;
             max-width: 800px;
-            margin: 2rem auto;
+            margin: 1.5rem auto;
         }
         
         .step {
             display: flex;
             align-items: start;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            gap: 1rem;
+            margin-bottom: 0.5rem;
         }
         
         .step-number {
             background-color: var(--primary);
             color: var(--light-text);
-            min-width: 40px;
-            height: 40px;
+            min-width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Inter', sans-serif;
             flex-shrink: 0;
-            font-weight: 600;
-            font-size: 1.2rem;
+            font-weight: 500;
         }
         
         .policy-box {
             background-color: var(--light-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
         }
         
+        .larger-projects {
+            margin-top: 1rem;
+            padding-left: 0.5rem;
+        }
+        
+        /* Testimonials */
         .testimonial-container {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
-            min-height: 220px;
+            min-height: 200px;
         }
         
         .testimonial {
             text-align: center;
             animation: fadeIn 0.5s;
             display: none;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .testimonial.active {
@@ -324,11 +287,10 @@
         blockquote {
             font-style: italic;
             color: var(--dark-text);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             font-size: 1.1rem;
             position: relative;
             padding: 0 2rem;
-            line-height: 1.7;
         }
         
         blockquote:before, blockquote:after {
@@ -353,7 +315,7 @@
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
         
         .testimonial-dot {
@@ -371,42 +333,23 @@
             transform: scale(1.2);
         }
         
+        /* Contact */
         .contact {
-            background: linear-gradient(135deg, var(--primary) 0%, #1E3A8A 100%);
+            background-color: var(--primary);
             color: var(--light-text);
             text-align: center;
-            padding: 3rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,50 50,50 100,0 L100,100 L0,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-            background-size: cover;
+            padding: 2.5rem 0;
         }
         
         .contact h2 {
             color: var(--light-text);
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact p {
-            position: relative;
-            z-index: 1;
         }
         
         footer {
-            background-color: #222;
+            background-color: #333333;
             color: var(--light-text);
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             text-align: center;
         }
 
@@ -414,9 +357,9 @@
             margin-top: 1rem;
         }
         
+        /* Compact Expertise Section */
         .expertise {
             background-color: var(--light-bg);
-            padding: 3rem 0;
         }
         
         .expertise-content {
@@ -425,53 +368,41 @@
         }
         
         .expertise-list {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
         
         .expertise-list h3 {
             color: var(--secondary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
         
         .expertise-items {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-        
-        .credentials-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 1.5rem;
-            padding: 1rem;
-        }
-        
-        .credentials-text {
-            white-space: nowrap;
-            display: inline-block;
-            margin-bottom: 1rem;
             font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
         }
         
-        .efa-logo-container {
+        /* EFA Logo Styling */
+        .efa-logo {
+            margin-top: 1.25rem;
             display: flex;
             justify-content: center;
-            width: 100%;
-            margin-top: 0.5rem;
+            align-items: center;
+            gap: 0.5rem;
         }
         
-        .efa-logo {
-            max-width: 100%;
-            height: auto;
+        .efa-logo img {
+            height: 50px;
+            width: auto;
+            opacity: 0.9;
             transition: var(--transition);
-            display: block;
+        }
+        
+        .efa-logo img:hover {
+            opacity: 1;
+            transform: scale(1.05);
         }
         
         .logo-label {
@@ -479,6 +410,35 @@
             color: #ccc;
         }
         
+        /* Loading animation for testimonials */
+        .testimonial-loading {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(10, 36, 99, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 0.8s ease infinite;
+            margin-left: 5px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+        
+        /* Improved spacing utilities */
+        .mt-1 { margin-top: 0.75rem; }
+        .mb-1 { margin-bottom: 0.75rem; }
+        .mt-2 { margin-top: 1.25rem; }
+        .mb-2 { margin-bottom: 1.25rem; }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             :root {
                 --section-spacing: 2rem;
@@ -527,8 +487,13 @@
                 border-bottom: none;
             }
             
+            .efa-logo {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
             .hero {
-                padding: 6rem 0 2rem;
+                padding: 5.5rem 0 2rem;
             }
             
             .strengths {
@@ -553,11 +518,6 @@
                 width: 140px;
                 height: 140px;
             }
-            
-            .credentials-text {
-                white-space: normal;
-                text-align: center;
-            }
         }
 
         @media (max-width: 480px) {
@@ -580,20 +540,16 @@
             }
             
             .strength {
-                padding: 1.5rem;
+                padding: 1.25rem;
             }
             
             .policy-box {
-                padding: 1.5rem;
+                padding: 1.25rem;
             }
             
             blockquote {
                 padding: 0 1.5rem;
                 font-size: 1rem;
-            }
-            
-            .credentials-text {
-                font-size: 0.9rem;
             }
         }
     </style>
@@ -727,12 +683,12 @@
                 <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
             </div>
             <div class="testimonial">
-                <blockquote>"Emma's developmental editing transformed my dissertation into a publishable manuscript. Her attention to argument structure and clarity helped me articulate my ideas more effectively. The final result was a much stronger piece of work that received positive feedback from reviewers."</blockquote>
-                <footer>— Dr. Sarah Johnson, University of Oxford</footer>
+                <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eu ultricies lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc eu nisl. Emma's developmental editing transformed my dissertation into a publishable manuscript."</blockquote>
+                <footer>— XXX</footer>
             </div>
             <div class="testimonial">
-                <blockquote>"Working with Emma was a game-changer for my research article. Her line editing not only improved the language but also enhanced the flow and impact of my argument. I particularly appreciated her cultural sensitivity as a non-native English speaker."</blockquote>
-                <footer>— Dr. Carlos Mendez, Universidad Nacional Autónoma de México</footer>
+                <blockquote>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Working with Emma was a game-changer for my research article. Her line editing not only improved the language but also enhanced the flow and impact of my argument."</blockquote>
+                <footer>— XXX</footer>
             </div>
         </div>
         <div class="testimonial-controls">
@@ -756,18 +712,15 @@
     <footer>
         <div class="container">
             <p>© 2025 Emma O. Bérat, PhD</p>
+            <div class="credentials">
+                <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
+                <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
+            </div>
             
-            <!-- Updated credentials section with container -->
-            <div class="credentials-container">
-                <div class="credentials-text" id="credentialText">
-                    <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
-                    <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
-                </div>
-                
-                <!-- EFA Logo Placement -->
-                <div class="efa-logo-container">
-                    <img src="navy-poppy_member-logo-trans.png" alt="Editorial Freelancers Association Member Logo" class="efa-logo" id="efaLogo" loading="lazy">
-                </div>
+            <!-- EFA Logo Placement - Updated with actual logo -->
+            <div class="efa-logo">
+                <span class="logo-label"></span>
+                <img src="navy-poppy_member-logo-trans.png" alt="Editorial Freelancers Association Member Logo" loading="lazy">
             </div>
         </div>
     </footer>
@@ -868,42 +821,6 @@
                     }
                 });
             });
-            
-            // Function to set EFA logo width to match credentials text while maintaining aspect ratio
-            function resizeEfaLogo() {
-                const credentialText = document.getElementById('credentialText');
-                const efaLogo = document.getElementById('efaLogo');
-                
-                if (credentialText && efaLogo) {
-                    // Get the width of the credential text
-                    const textWidth = credentialText.offsetWidth;
-                    
-                    // Set the logo width to match the text width
-                    efaLogo.style.width = textWidth + 'px';
-                    
-                    // Maintain aspect ratio by calculating height based on natural dimensions
-                    if (efaLogo.naturalWidth && efaLogo.naturalHeight) {
-                        const aspectRatio = efaLogo.naturalHeight / efaLogo.naturalWidth;
-                        efaLogo.style.height = (textWidth * aspectRatio) + 'px';
-                    } else {
-                        // Fallback if natural dimensions aren't available
-                        efaLogo.style.height = 'auto';
-                    }
-                }
-            }
-            
-            // Load the image first to get its natural dimensions, then resize
-            const efaLogo = document.getElementById('efaLogo');
-            if (efaLogo) {
-                if (efaLogo.complete) {
-                    resizeEfaLogo();
-                } else {
-                    efaLogo.addEventListener('load', resizeEfaLogo);
-                }
-            }
-            
-            // Also call on window resize
-            window.addEventListener('resize', resizeEfaLogo);
         });
     </script>
 </body>
