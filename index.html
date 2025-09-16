@@ -505,16 +505,17 @@
         
         /* EFA Logo Styling */
         .efa-logo {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.8rem;
+            width: 100%;
         }
         
         .efa-logo img {
-            height: 50px;
-            width: auto;
+            max-width: 400px;  /* Increased from fixed height to max-width */
+            width: 100%;       /* Makes it responsive */
+            height: auto;      /* Maintains aspect ratio */
             opacity: 0.9;
             transition: var(--transition);
         }
@@ -718,6 +719,9 @@
             
             .expertise-list {
                 padding: 2rem;
+            }
+            .efa-logo img {
+                max-width: 250px; /* Even smaller on mobile phones */
             }
         }
     </style>
