@@ -145,7 +145,6 @@
         .nav-links {
             display: flex;
             gap: 2.5rem;
-            align-items: center;
         }
         
         .nav-links a {
@@ -172,29 +171,6 @@
         .nav-links a:hover:after, 
         .nav-links a:focus:after {
             width: 100%;
-        }
-        
-        .linkedin-link {
-            display: flex;
-            align-items: center;
-            color: var(--dark-text);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-            padding: 0.5rem 0;
-        }
-        
-        .linkedin-link:hover {
-            color: #0077B5;
-        }
-        
-        .linkedin-icon {
-            font-size: 1.3rem;
-            transition: var(--transition);
-        }
-        
-        .linkedin-link:hover .linkedin-icon {
-            transform: scale(1.1);
         }
         
         .menu-toggle {
@@ -613,13 +589,6 @@
                 border-bottom: none;
             }
             
-            .linkedin-link {
-                padding: 1rem 2rem;
-                width: 100%;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
-                justify-content: center;
-            }
-            
             .efa-logo {
                 flex-direction: column;
                 gap: 0.8rem;
@@ -629,4 +598,342 @@
                 padding: 6rem 0 2rem;
             }
             
-            .
+            .strengths {
+                flex-direction: column;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                align-self: center;
+                margin-bottom: 1rem;
+            }
+            
+            .testimonial-container {
+                min-height: 280px;
+            }
+            
+            .headshot {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --section-spacing: 2.5rem;
+            }
+            
+            .headshot {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .strength {
+                padding: 2rem;
+            }
+            
+            .policy-box {
+                padding: 2rem;
+            }
+            
+            blockquote {
+                padding: 0 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .step {
+                padding: 2rem;
+            }
+            
+            .expertise-list {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Emma O. Bérat, PhD</div>
+            <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#expertise">Expertise</a>
+                <a href="#process">Process</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content spacing-relaxed">
+            <h1>Developmental & Line Editing</h1>
+            <div class="hero-subtitle"><strong><em>for Research that Makes a Difference</em></strong></div>
+            <p>Helping scholars communicate with clarity and impact through collaborative editing.</p>
+            <a href="#contact" class="btn">Request a Quote <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="profile-container">
+                <img src="https://placehold.co/400x400?text=Emma+Bérat" alt="Emma O. Bérat - Academic Editor" class="headshot" loading="lazy">
+                <div>
+                    <p>I specialize in developmental and line editing for academic researchers who are striving to make the world a better place.</p>
+                    <p>In my role as an intellectual partner and expert reader, I aim to serve as an intermediary between you and your ideal audience. My goal is to support you through the process of bringing your ideas to publication with originality and strength, refining your argument, and making sure your manuscript meets the publisher's standards for precision, logic, and rigor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY DIFFERENTIATORS -->
+    <section class="container">
+        <h2 class="section-title">Why Choose Me</h2>
+        <div class="strengths">
+            <article class="strength">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Firsthand Experience</h3>
+                <p>With a PhD from Columbia University and a book published with Cambridge University Press, I have a deep understanding of the academic ecosystem. I have served as a reviewer and guest editor for peer-reviewed journals and helped clients publish in leading international journals. I've worked with academics, including a Nobel Prize winner, from a wide range of fields, as well as with non-profits and organizations, including the United Nations.</p>
+            </article>
+            <article class="strength">
+                <i class="fas fa-globe"></i>
+                <h3>Multinational Expertise</h3>
+                <p>Originally from New Zealand, I grew up in southeast Asia, studied in the United Kingdom and United States, and currently live in France. I am committed to helping non-native English speakers communicate with confidence, clarity, and authenticity. I am comfortable with American and British language conventions.</p>
+            </article>   
+        </div>
+    </section>
+
+    <!-- EXPERTISE SECTION -->
+    <section id="expertise" class="expertise">
+        <div class="container expertise-content">
+            
+            <div class="expertise-list">
+                <h3>Subject Areas</h3>
+                <p class="expertise-items">
+                    Sociology, Anthropology, Cultural Studies, Qualitative Research Methods, Ethnography, Religion, 
+                    Women & Gender Studies, Labour Studies, Social Justice, Human Rights, Migration & Refugee Studies, 
+                    Family Studies, Child Welfare, Children's Rights, Elderly Care, Social Work, Travel & Tourism,
+                    Literature, Art History, History of Science
+                </p>
+            </div>
+            
+            <div class="expertise-list">
+                <h3>Document Types</h3>
+                <p class="expertise-items">
+                    Research Articles, Book Proposals, Grant Applications, Conference Papers, 
+                    University Applications, PhD Theses / Dissertations
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="process">
+        <div class="container">
+            <h2 class="section-title">The Process</h2>
+            
+            <div class="process-steps spacing-tight">
+                <article class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Send Your Document</h3>
+                        <p>Email me your manuscript and any relevant details (target journal, reviewer comments). I'll reply within 24 hours with an estimate of cost or further questions, if needed. For longer projects, let's have a Zoom call.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Receive a Quote</h3>
+                        <p>My rates are based on an hourly fee:</p>
+                        <ul>
+                            <li>€45 (US$50)/hour for students and non-tenured researchers</li>
+                            <li>€55 (US$60)/hour for tenured researchers, businesses, and organizations</li>
+                        </ul>
+                        <p><em>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please get in touch anyway.</em></p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>An Efficient Turnaround</h3>
+                        <p>For documents under 10,000 words, I can often return edits within one week.</p>
+                        <p>Depending on availability, I may be able to return your manuscript in 48 hours for an extra fee.</p>
+                    </div>
+                </article>
+            </div>
+                       
+            <article class="policy-box spacing-tight">
+                <h3>Confidentiality & AI Policy</h3>
+                <p>Your unpublished work is confidential. I do not share it, discuss it, or use it for any purpose other than your editing.</p>
+                <p>I do not use generative AI in my work. Your text is never uploaded to any AI platform. My feedback and edits come solely from my own assessment.</p>
+                <p>I encourage minimal use of AI in your text as it often flattens voice, and expert readers can detect its use.</p>
+            </article>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="btn">Get Started Today <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-container">
+            <div class="testimonial active">
+                <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
+                <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
+            </div>
+            <div class="testimonial">
+                <blockquote>"XXXXX."</blockquote>
+                <footer>— Dr. XX, XX</footer>
+            </div>
+            <div class="testimonial">
+                <blockquote>"XXX."</blockquote>
+                <footer>— Dr. XX, XX</footer>
+            </div>
+        </div>
+        <div class="testimonial-controls">
+            <button class="testimonial-dot active" data-index="0" aria-label="Show testimonial 1"></button>
+            <button class="testimonial-dot" data-index="1" aria-label="Show testimonial 2"></button>
+            <button class="testimonial-dot" data-index="2" aria-label="Show testimonial 3"></button>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Email me your project details to receive a quote within 24 hours.</p>
+            <a href="mailto:editor.emmaberat@gmail.com?subject=Editing Quote Request: [Project Title]" class="btn">Email Your Project & Get a Quote <i class="fas fa-paper-plane"></i></a>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem;">Or contact me at editor.emmaberat@gmail.com. I handle all inquiries personally and respond within 24 hours.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Emma O. Bérat, PhD</p>
+            <div class="credentials">
+                <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
+                <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
+            </div>
+            
+            <!-- EFA Logo Placement - Updated with actual logo -->
+            <div class="efa-logo">
+                <span class="logo-label"></span>
+                <img src="navy-poppy_member-logo-trans.png" alt="Editorial Freelancers Association Member Logo" loading="lazy">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    const isExpanded = navLinks.classList.contains('active');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+            
+            // Close menu when clicking on a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Testimonial rotation
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            let currentIndex = 0;
+            let testimonialInterval;
+            
+            function showTestimonial(index) {
+                // Add loading animation during transition
+                const container = document.querySelector('.testimonial-container');
+                container.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    
+                    testimonials[index].classList.add('active');
+                    dots[index].classList.add('active');
+                    currentIndex = index;
+                    
+                    container.style.opacity = '1';
+                }, 300);
+            }
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    showTestimonial(index);
+                    
+                    // Reset auto-rotation
+                    clearInterval(testimonialInterval);
+                    testimonialInterval = setInterval(rotateTestimonials, 8000);
+                });
+            });
+            
+            function rotateTestimonials() {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                showTestimonial(currentIndex);
+            }
+            
+            // Auto-rotate testimonials every 8 seconds
+            testimonialInterval = setInterval(rotateTestimonials, 8000);
+            
+            // Pause rotation when hovering over testimonials
+            const testimonialContainer = document.querySelector('.testimonial-container');
+            testimonialContainer.addEventListener('mouseenter', () => {
+                clearInterval(testimonialInterval);
+            });
+            
+            testimonialContainer.addEventListener('mouseleave', () => {
+                testimonialInterval = setInterval(rotateTestimonials, 8000);
+            });
+            
+            // Smooth scroll for anchor links with offset for fixed header
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
