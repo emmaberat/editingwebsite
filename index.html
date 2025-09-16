@@ -145,6 +145,7 @@
         .nav-links {
             display: flex;
             gap: 2.5rem;
+            align-items: center;
         }
         
         .nav-links a {
@@ -171,6 +172,29 @@
         .nav-links a:hover:after, 
         .nav-links a:focus:after {
             width: 100%;
+        }
+        
+        .linkedin-link {
+            display: flex;
+            align-items: center;
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            padding: 0.5rem 0;
+        }
+        
+        .linkedin-link:hover {
+            color: #0077B5;
+        }
+        
+        .linkedin-icon {
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+        
+        .linkedin-link:hover .linkedin-icon {
+            transform: scale(1.1);
         }
         
         .menu-toggle {
@@ -589,6 +613,13 @@
                 border-bottom: none;
             }
             
+            .linkedin-link {
+                padding: 1rem 2rem;
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+                justify-content: center;
+            }
+            
             .efa-logo {
                 flex-direction: column;
                 gap: 0.8rem;
@@ -675,6 +706,9 @@
                 <a href="#process">Process</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
+                <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+                    <i class="fab fa-linkedin linkedin-icon"></i>
+                </a>
             </div>
         </nav>
     </header>
@@ -825,8 +859,8 @@
         <div class="container">
             <p>© 2025 Emma O. Bérat, PhD</p>
             <div class="credentials">
-                <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" style="color: #F8F5F0;">LinkedIn</a> | 
-                <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
+                <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" target="_blank" rel="noopener noreferrer" style="color: #F8F5F0;">LinkedIn</a> | 
+                <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" target="_blank" rel="noopener noreferrer" style="color: #F8F5F0;">Professional Member of the Editorial Freelancers Association</a>
             </div>
             
             <!-- EFA Logo Placement - Updated with actual logo -->
@@ -852,7 +886,7 @@
             }
             
             // Close menu when clicking on a link
-            const navItems = document.querySelectorAll('.nav-links a');
+            const navItems = document.querySelectorAll('.nav-links a, .linkedin-link');
             navItems.forEach(item => {
                 item.addEventListener('click', function() {
                     navLinks.classList.remove('active');
