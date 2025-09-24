@@ -390,21 +390,10 @@
         
         .testimonial {
             text-align: center;
-            animation: fadeIn 0.5s;
-            display: none;
             background: white;
             padding: 2.5rem;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-        }
-        
-        .testimonial.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
         
         blockquote {
@@ -433,28 +422,6 @@
         blockquote:after {
             right: 0;
             bottom: -2rem;
-        }
-        
-        .testimonial-controls {
-            display: flex;
-            justify-content: center;
-            gap: 0.6rem;
-            margin-top: 2rem;
-        }
-        
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ddd;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-        }
-        
-        .testimonial-dot.active, .testimonial-dot:hover {
-            background-color: var(--primary);
-            transform: scale(1.2);
         }
         
         /* Contact */
@@ -537,22 +504,6 @@
         .logo-label {
             font-size: 0.9rem;
             color: #ccc;
-        }
-        
-        /* Loading animation for testimonials */
-        .testimonial-loading {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border: 2px solid rgba(10, 36, 99, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 0.8s ease infinite;
-            margin-left: 5px;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
         
         /* Focus styles for accessibility */
@@ -749,7 +700,6 @@
             <div class="nav-links" id="navLinks">
                 <a href="#expertise">Expertise</a>
                 <a href="#process">Process</a>
-                <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
                 <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
                     <i class="fab fa-linkedin linkedin-icon"></i>
@@ -875,23 +825,10 @@
     <section id="testimonials" class="container">
         <h2 class="section-title">Testimonials</h2>
         <div class="testimonial-container">
-            <div class="testimonial active">
+            <div class="testimonial">
                 <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
                 <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
             </div>
-            <div class="testimonial">
-                <blockquote>"XXXXX."</blockquote>
-                <footer>— Dr. XX, XX</footer>
-            </div>
-            <div class="testimonial">
-                <blockquote>"XXX."</blockquote>
-                <footer>— Dr. XX, XX</footer>
-            </div>
-        </div>
-        <div class="testimonial-controls">
-            <button class="testimonial-dot active" data-index="0" aria-label="Show testimonial 1"></button>
-            <button class="testimonial-dot" data-index="1" aria-label="Show testimonial 2"></button>
-            <button class="testimonial-dot" data-index="2" aria-label="Show testimonial 3"></button>
         </div>
     </section>
 
@@ -943,58 +880,6 @@
                     navLinks.classList.remove('active');
                     menuToggle.setAttribute('aria-expanded', 'false');
                 });
-            });
-            
-            // Testimonial rotation
-            const testimonials = document.querySelectorAll('.testimonial');
-            const dots = document.querySelectorAll('.testimonial-dot');
-            let currentIndex = 0;
-            let testimonialInterval;
-            
-            function showTestimonial(index) {
-                // Add loading animation during transition
-                const container = document.querySelector('.testimonial-container');
-                container.style.opacity = '0.7';
-                
-                setTimeout(() => {
-                    testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    
-                    testimonials[index].classList.add('active');
-                    dots[index].classList.add('active');
-                    currentIndex = index;
-                    
-                    container.style.opacity = '1';
-                }, 300);
-            }
-            
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    showTestimonial(index);
-                    
-                    // Reset auto-rotation
-                    clearInterval(testimonialInterval);
-                    testimonialInterval = setInterval(rotateTestimonials, 8000);
-                });
-            });
-            
-            function rotateTestimonials() {
-                currentIndex = (currentIndex + 1) % testimonials.length;
-                showTestimonial(currentIndex);
-            }
-            
-            // Auto-rotate testimonials every 8 seconds
-            testimonialInterval = setInterval(rotateTestimonials, 8000);
-            
-            // Pause rotation when hovering over testimonials
-            const testimonialContainer = document.querySelector('.testimonial-container');
-            testimonialContainer.addEventListener('mouseenter', () => {
-                clearInterval(testimonialInterval);
-            });
-            
-            testimonialContainer.addEventListener('mouseleave', () => {
-                testimonialInterval = setInterval(rotateTestimonials, 8000);
             });
             
             // Smooth scroll for anchor links with offset for fixed header
