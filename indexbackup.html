@@ -443,13 +443,18 @@
             bottom: -2rem;
         }
 
-        /* Testimonial footer (credits) - original style: plain dark text */
+        /* Testimonial footer (credits) */
         .testimonial footer {
-            color: var(--dark-text);        /* same as body text */
+            background-color: var(--primary);
+            color: var(--light-text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;      /* pill shape – change to 0 for rectangle */
+            display: inline-block;
+            margin-top: 0.5rem;
             font-weight: 500;
-            margin-top: 1rem;
             font-size: 1rem;
-            /* no background, no extra styling */
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         /* slider buttons - primary color, perfectly centered */
