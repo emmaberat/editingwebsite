@@ -382,22 +382,17 @@
             border-left: 3px solid var(--secondary);
         }
         
-        .larger-projects {
-            margin-top: 1rem;
-            padding-left: 0.5rem;
-        }
-        
-        /* ===== TESTIMONIAL CAROUSEL ===== */
+        /* ===== TESTIMONIAL CAROUSEL (no title) ===== */
         .testimonial-slider {
             position: relative;
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 2rem;  /* space for arrows */
+            padding: 0 2rem; 
         }
 
         .testimonial-slides {
             position: relative;
-            min-height: 280px; /* prevents layout shift */
+            min-height: 280px;
         }
 
         .testimonial-slide {
@@ -448,10 +443,18 @@
             bottom: -2rem;
         }
 
+        /* Testimonial footer (credentials) white on dark blue */
         .testimonial footer {
+            background-color: var(--primary);      /* dark blue */
+            color: var(--light-text);               /* white */
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;                     /* pill shape, softer */
+            display: inline-block;                    /* fit to content */
+            margin-top: 0.5rem;
             font-weight: 500;
-            color: var(--secondary);
-            margin-top: 1rem;
+            font-size: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         /* slider buttons */
@@ -741,6 +744,10 @@
             .testimonial-slider {
                 padding: 0 0.5rem;
             }
+            .testimonial footer {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
         }
     </style>
 </head>
@@ -872,26 +879,25 @@
         </div>
     </section>
 
-    <!-- ===== TESTIMONIALS CAROUSEL (THREE QUOTES) ===== -->
-    <section id="testimonials" class="container">
-        <h2 class="section-title">Kind Words</h2>
+    <!-- ===== TESTIMONIALS CAROUSEL (no title, credentials white on dark blue) ===== -->
+    <section id="testimonials" class="container" style="padding-top: 0;">  <!-- reduced extra space -->
         <div class="testimonial-slider">
             <div class="testimonial-slides">
-                <!-- slide 1: existing -->
+                <!-- slide 1: Tilman Trausch -->
                 <div class="testimonial-slide active">
                     <div class="testimonial">
                         <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
                         <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
                     </div>
                 </div>
-                <!-- slide 2: Prof. Valerie L. Garver -->
+                <!-- slide 2: Valerie L. Garver -->
                 <div class="testimonial-slide">
                     <div class="testimonial">
                         <blockquote>"Emma’s developmental editing was invaluable in completing my book manuscript, especially her suggestions for re-ordering material to strengthen my arguments and ensure readability. Emma amplified my own voice and ideas through judicious cuts, questions that demanded greater clarity, and ideas for changes that helped me reach a wider audience than those in my field of expertise. She’s also wonderful to work with—professional, responsive, insightful, and genuinely curious about what she reads. You can tell she enjoys her work. I recommend her highly."</blockquote>
                         <footer>— Prof. Valerie L. Garver, Northern Illinois University</footer>
                     </div>
                 </div>
-                <!-- slide 3: Dr Ori Mautner -->
+                <!-- slide 3: Ori Mautner -->
                 <div class="testimonial-slide">
                     <div class="testimonial">
                         <blockquote>"I have worked with Emma on line edits of my monograph, forthcoming with University of Pennsylvania Press, and several articles published in peer-reviewed journals, including American Anthropologist and Current Anthropology. Her careful, insightful editing has helped bring clarity to my writing and thinking. Emma is also a pleasure to work with – reliable, timely, and consistently pleasant to interact with. Highly recommended."</blockquote>
@@ -1035,8 +1041,6 @@
                 prevBtn.addEventListener('click', prevSlide);
                 nextBtn.addEventListener('click', nextSlide);
             }
-
-            // optional: auto-play? not added to keep it simple and accessible
         });
     </script>
 </body>
