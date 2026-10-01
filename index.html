@@ -20,12 +20,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1A365D;
-            --secondary: #2A4B8C;
-            --accent: #4A6FA5;
-            --light-bg: #F8F9FA;
+            --primary: #103A3E;
+            --secondary: #2E3470;
+            --accent: #2E3470;
+            --light-bg: #1D5A4F;
             --dark-text: #212529;
             --light-text: #FFFFFF;
+            --page-bg: #1D5A4F;
             --transition: all 0.3s ease;
             --section-spacing: 4rem;
             --element-spacing: 1.5rem;
@@ -49,10 +50,27 @@
             font-family: 'Inter', sans-serif;
             color: var(--dark-text);
             line-height: 1.7;
-            background-color: #fff;
+            background-color: var(--page-bg);
             font-weight: 400;
+            position: relative;
         }
-        
+
+        .page-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140vmax;
+            height: 140vmax;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header, .hero, .strengths, .expertise, #process, #testimonials, .contact, footer {
+            position: relative;
+            z-index: 1;
+        }
+
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--primary);
@@ -121,15 +139,15 @@
         
         /* Header */
         header {
-            background-color: rgba(255, 255, 255, 0.98);
-            color: var(--dark-text);
+            background-color: rgba(29, 90, 79, 0.96);
+            color: var(--light-text);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+            border-bottom: 1px solid rgba(46, 52, 112, 0.4);
         }
         
         nav {
@@ -145,20 +163,20 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.4rem;
-            color: var(--primary);
+            color: var(--light-text);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
             align-items: center;
         }
-        
+
         .nav-links a {
-            color: var(--dark-text);
+            color: var(--light-text);
             text-decoration: none;
             transition: var(--transition);
             padding: 0.5rem 0;
@@ -166,7 +184,7 @@
             font-weight: 500;
             font-size: 1rem;
         }
-        
+
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -174,73 +192,82 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background-color: var(--accent);
             transition: var(--transition);
         }
-        
-        .nav-links a:hover:after, 
+
+        .nav-links a:hover:after,
         .nav-links a:focus:after {
             width: 100%;
         }
-        
+
         .linkedin-link {
             display: flex;
             align-items: center;
-            color: var(--dark-text);
+            color: var(--light-text);
             text-decoration: none;
             transition: var(--transition);
             font-weight: 500;
             padding: 0.5rem 0;
         }
-        
+
         .linkedin-link:hover {
-            color: #0077B5;
+            color: #4fa8da;
         }
-        
+
         .linkedin-icon {
             font-size: 1.3rem;
             transition: var(--transition);
         }
-        
+
         .linkedin-link:hover .linkedin-icon {
             transform: scale(1.1);
         }
-        
+
         .linkedin-text-link {
             display: none;
         }
-        
+
         .menu-toggle {
             display: none;
             background: none;
             border: none;
-            color: var(--dark-text);
+            color: var(--light-text);
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(to bottom, rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 1)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23F8F9FA" width="100" height="100"/><path fill="%23e9ecef" d="M0 0h100v100H0z"/><path fill="%23dee2e6" d="M0 0h50v50H0z"/></svg>');
+            background:
+                radial-gradient(circle at 18% 15%, rgba(46, 52, 112, 0.55), transparent 55%),
+                radial-gradient(circle at 85% 85%, rgba(46, 52, 112, 0.4), transparent 50%),
+                linear-gradient(170deg, #103A3E 0%, #1D5A4F 55%, #103A3E 100%);
             padding: 8rem 0 4rem;
             text-align: center;
             position: relative;
         }
-        
+
+        .hero h1,
+        .hero-content > p {
+            color: var(--light-text);
+        }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
+            z-index: 1;
         }
-        
+
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.6rem);
-            color: var(--secondary);
+            color: #8FD9C7;
             margin-bottom: 1.5rem;
             font-weight: 400;
             font-style: italic;
         }
-        
+
         .profile-container {
             display: flex;
             align-items: center;
@@ -251,8 +278,8 @@
             background: white;
             padding: 2.5rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--card-shadow);
-            border-left: 4px solid var(--primary);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+            border-left: 4px solid var(--secondary);
         }
         
         .headshot-container {
@@ -284,10 +311,11 @@
             position: relative;
             display: inline-block;
             left: 50%;
-            transform: translateX(-50%); 
+            transform: translateX(-50%);
             padding-bottom: 0.5rem;
+            color: var(--light-text) !important;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -296,7 +324,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background-color: var(--primary);
+            background-color: var(--accent);
         }
         
         .strengths {
@@ -317,7 +345,7 @@
             transition: var(--transition);
             margin-bottom: 0.75rem;
             box-shadow: var(--card-shadow);
-            border-top: 3px solid var(--primary);
+            border-top: 3px solid var(--secondary);
         }
         
         .strength:hover {
@@ -350,9 +378,9 @@
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
             transition: var(--transition);
-            border-left: 3px solid var(--primary);
+            border-left: 3px solid var(--secondary);
         }
-        
+
         .step:hover {
             transform: translateX(5px);
             box-shadow: var(--hover-shadow);
@@ -371,15 +399,20 @@
             flex-shrink: 0;
             font-weight: 600;
             font-size: 1.1rem;
-            box-shadow: 0 4px 8px rgba(26, 54, 93, 0.2);
+            box-shadow: 0 4px 10px rgba(46, 52, 112, 0.4);
         }
-        
+
         .policy-box {
             background-color: var(--light-bg);
+            color: #D9D2E8;
             padding: 2.5rem;
             border-radius: var(--border-radius);
             margin: 2rem 0;
             border-left: 3px solid var(--secondary);
+        }
+
+        .policy-box h3 {
+            color: var(--accent);
         }
         
         /* ===== TESTIMONIAL CAROUSEL (no title) ===== */
@@ -541,10 +574,11 @@
         }
         
         footer {
-            background-color: var(--dark-text);
+            background-color: var(--page-bg);
             color: var(--light-text);
             padding: 2.5rem 0;
             text-align: center;
+            border-top: 1px solid rgba(46, 52, 112, 0.4);
         }
 
         .credentials {
@@ -757,6 +791,19 @@
     </style>
 </head>
 <body>
+    <svg class="page-watermark" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <g transform="rotate(-18 100 100)" fill="none" stroke="rgba(143,217,199,0.22)" stroke-width="0.6">
+            <path d="M20 108 A82 82 0 0 1 180 108 Z"/>
+            <path d="M36 108 A66 66 0 0 1 164 108 Z"/>
+            <circle cx="72" cy="86" r="1.4" fill="rgba(143,217,199,0.22)" stroke="none"/>
+            <circle cx="100" cy="76" r="1.4" fill="rgba(143,217,199,0.22)" stroke="none"/>
+            <circle cx="128" cy="86" r="1.4" fill="rgba(143,217,199,0.22)" stroke="none"/>
+            <circle cx="86" cy="98" r="1.4" fill="rgba(143,217,199,0.22)" stroke="none"/>
+            <circle cx="114" cy="98" r="1.4" fill="rgba(143,217,199,0.22)" stroke="none"/>
+            <circle cx="100" cy="108" r="1.4" fill="rgba(143,217,199,0.22)" stroke="none"/>
+        </g>
+    </svg>
+
     <!-- HEADER -->
     <header>
         <nav>
@@ -790,10 +837,19 @@
                 </div>
                 <div>
                     <p>I specialize in developmental and line editing for academic researchers in the social sciences, humanities, and related fields (see list below).</p>
-                    <p>As an intellectual partner and expert reader, I serve as an intermediary between you and your ideal audience, making sure your work has the impact you intend. With 8+ years of full-time editing experience, my goal is to support you through the process of bringing your ideas to publication with originality and strength, refining your argument, and making sure your manuscript meets the publisher's standards for precision, logic, and rigor. I especially enjoy working with writers who believe in their work's potential to advance humanity.</p>
+                    <p>I read as both an expert in your argument's logic and a stand-in for your eventual audience, so that what you intend to say and what readers actually take away from the page match. With a PhD from Columbia and 8+ years of full-time editing, I aim to support you through the process of bringing your ideas to publication: reordering where it helps the argument, cutting where it gets in the way, and raising questions where the reasoning needs to be tighter. I'm especially glad to work with writers who know their research can move the world forward.</p>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- WHAT IS DEVELOPMENTAL EDITING -->
+    <section class="container" style="position: relative; z-index: 1;">
+        <article class="strength spacing-tight" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <h3>What Is Developmental Editing?</h3>
+            <p>Developmental or structural editing is big-picture editing that looks at your argument's structure, logic, and flow. I identify gaps or weak points in your reasoning, suggest how material might be reordered or expanded to make your case more persuasive, and flag where a paragraph's point isn't yet clear from its first sentence. I'm not assessing whether your work deserves to be published (I'm on your side &mdash; and brutally honest), and I'm not a subject expert weighing in on your field. Instead, I work with you to help you convey more clearly what you already mean to the audience you're writing for.</p>
+            <p>Line editing is the complementary, closer-up pass: Once the argument itself is sound, I work sentence by sentence to sharpen your wording, tighten rhythm, and resolve the small ambiguities that can blur an otherwise strong point.</p>
+        </article>
     </section>
 
     <!-- KEY DIFFERENTIATORS -->
@@ -802,7 +858,7 @@
         <div class="strengths">
             <article class="strength">
                 <h3>Firsthand Experience</h3>
-                <p>With a PhD from Columbia University and a book published by Cambridge University Press, I have a deep understanding of the academic ecosystem. I have served as a reviewer and guest editor for peer-reviewed journals and helped clients publish in leading international journals. I've worked with academics, including a Nobel Prize winner, from a wide range of fields, as well as with non-profits and organizations, including the United Nations.</p>
+                <p>With a PhD from Columbia University and a book published by Cambridge University Press, I have a deep understanding of academic publishing. I have served as a reviewer and guest editor for peer-reviewed journals and helped clients publish in leading international journals. I've worked with academics, including a Nobel Prize winner, from a wide range of fields, as well as with non-profits and organizations, including the United Nations.</p>
             </article>
             <article class="strength">
                 <h3>Multinational Expertise</h3>
@@ -827,7 +883,7 @@
             <div class="expertise-list">
                 <h3>Document Types</h3>
                 <p class="expertise-items">
-                    Research Articles, Book Proposals, Grant Applications, Conference Papers, 
+                    Research Articles, Book Manuscripts, Book Proposals, Grant Applications, Conference Papers,
                     University Applications, PhD Theses / Dissertations
                 </p>
             </div>
@@ -839,40 +895,29 @@
         <div class="container">
             <h2 class="section-title">The Process</h2>
             
-            <div class="process-steps spacing-tight">
-                <article class="step">
-                    <div class="step-number">1</div>
-                    <div>
-                        <h3>Contact Me/Send Your Document</h3>
-                        <p>Email me at editor.emmaberat@gmail.com with your manuscript (optional) and any relevant details (target journal, reviewer comments). I'll reply within 24 hours with an estimate of cost or further questions, if needed. For longer projects, let's have a Zoom call.</p>
-                    </div>
-                </article>
-                <article class="step">
-                    <div class="step-number">2</div>
-                    <div>
-                        <h3>Receive a Quote</h3>
-                        <p>I charge an hourly rate, which starts at €60 (~US$70)</p>
-                        <p>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please reach out to discuss!</p>
-                        <p><em>I typically edit 1000–2000+ words an hour, depending on the type of editing required and state of the draft.</em>
-                        </p>
-                    </div>
-                </article>
-                <article class="step">
-                    <div class="step-number">3</div>
-                    <div>
-                        <h3>An Efficient Turnaround</h3>
-                        <p>For documents under 10,000 words, I can often return edits within one week.</p>
-                        <p>Depending on availability, I may be able to return your manuscript in 48 hours for an extra fee.</p>
-                    </div>
+            <div class="strengths spacing-tight" style="align-items: stretch;">
+                <article class="strength" style="flex: 2; max-width: 800px; text-align: left;">
+                    <h3 style="margin-bottom: 0.75rem;">1. Contact Me / Send Your Document</h3>
+                    <p>Email me at editor.emmaberat@gmail.com with your manuscript (optional) and any relevant details (target journal, reviewer comments). I'll reply within 24 hours with an estimate of cost or further questions, if needed. For longer projects, let's have a Zoom call.</p>
+
+                    <h3 style="margin: 1.5rem 0 0.75rem;">2. Receive a Quote</h3>
+                    <p>I charge an hourly rate, which starts at €50 (~US$58).</p>
+                    <p>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please reach out to discuss!</p>
+                    <p><em>I typically edit 1000–2000+ words an hour, depending on the type of editing required and state of the draft.</em></p>
+
+                    <h3 style="margin: 1.5rem 0 0.75rem;">3. An Efficient Turnaround</h3>
+                    <p>For documents under 10,000 words, I can often return edits within one week.</p>
+                    <p>Depending on availability, I may be able to return your manuscript in 48 hours for an extra fee.</p>
                 </article>
             </div>
-                       
-            <article class="policy-box spacing-tight">
-                <h3>Confidentiality & AI Policy</h3>
-                <p>Your unpublished work is confidential. I do not share it, discuss it, or use it for any purpose other than your editing.</p>
-                <p>I do not use generative AI in my work. Your text is never uploaded to any AI platform. My feedback and edits come solely from my own assessment.</p>
-                <p>I encourage minimal use of AI in your text as it often flattens voice, and expert readers can detect its use.</p>
-            </article>
+
+            <div class="strengths spacing-tight" style="margin-top: 1.5rem;">
+                <article class="strength" style="flex: 2; max-width: 800px; text-align: left;">
+                    <h3>Confidentiality & AI Policy</h3>
+                    <p>Your unpublished work is confidential. I do not share it, discuss it, or use it for any purpose other than your editing.</p>
+                    <p>I do not use generative AI in my work: your text is never uploaded to any AI platform, and my feedback and edits come solely from my own assessment.</p>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -901,6 +946,15 @@
                         <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
                     </div>
                 </div>
+                <!-- slide 4: combined anonymous quotes -->
+                <div class="testimonial-slide">
+                    <div class="testimonial">
+                        <blockquote style="margin-bottom: 1rem;">"I really, really love working with you because it feels like you can read my mind! Your editing skills are superb, and you provide insightful comments and suggestions as to how I could improve my text."</blockquote>
+                        <blockquote style="margin-bottom: 1rem;">"Thanks to [Emma's] incredible service, my grant proposal became more competitive and I was recently informed that I have been selected for funding! [...] I can truly say that she is the best editor that I've ever worked with."</blockquote>
+                        <blockquote style="margin-bottom: 1rem;">"You left the integrity of my writing fully intact but gave it a good polish! Thank you, thank you, thank you!!!"</blockquote>
+                        <footer>— Anonymous clients</footer>
+                    </div>
+                </div>
             </div>
 
             <!-- navigation arrows -->
@@ -916,7 +970,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <a href="mailto:editor.emmaberat@gmail.com?subject=Editing%20Quote%20Request" class="btn">Email Your Project &amp; Get a Quote <i class="fas fa-paper-plane"></i></a>
-            <p style="margin-top: 1.5rem; font-size: 0.95rem;">Contact me at editor.emmaberat@gmail.com. I handle all inquiries personally and respond within 24 hours.</p>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem;">Contact me at editor.emmaberat@gmail.com.</p>
         </div>
     </section>
 
