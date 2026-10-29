@@ -1,0 +1,25 @@
+# Everyone, including search engines and AI crawlers, is welcome.
+User-agent: *
+Allow: /
+
+# Named AI search/answer crawlers (explicitly allowed)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://ebediting.com/sitemap.xml
