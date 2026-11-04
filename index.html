@@ -1170,7 +1170,7 @@
                 const slider = document.querySelector('.testimonial-slider');
                 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 let timer = null;
-                const start = () => { if (!reduce && !timer) timer = setInterval(nextSlide, 8000); };
+                const start = () => { if (!reduce && !timer) timer = setInterval(nextSlide, 5000); };
                 const stop = () => { clearInterval(timer); timer = null; };
                 slider.addEventListener('mouseenter', stop);
                 slider.addEventListener('mouseleave', start);
