@@ -484,8 +484,18 @@
             color: var(--accent);
         }
         
-        /* Box headings centered */
+        /* Consistent 5rem space above each major heading */
+        section.container { padding-top: 5rem; padding-bottom: 0; }
+        .hero + section.container { padding-top: 1rem; }
+        section.container .strength { margin-bottom: 0; }
+        #testimonials { padding-bottom: 0; }
+        .expertise { padding: 4rem 0 0; } /* testimonial dots add ~1rem above */
+        .expertise-list:last-child { margin-bottom: 0; }
+        #process { padding: 5rem 0 0; }
+
+        /* Box headings centered; numbered Process steps are a list, so left-aligned */
         .strength h3, .expertise-list h3 { text-align: center; }
+        #process .strength h3:not(:only-of-type) { text-align: left; }
 
         /* ===== TESTIMONIAL CAROUSEL (no title) ===== */
         .testimonial-slider {
@@ -629,9 +639,6 @@
         }
 
         /* add bottom padding to testimonials section for extra breathing room */
-        #testimonials {
-            padding-bottom: calc(var(--section-spacing) * 0.5); /* adds space before contact */
-        }
 
         /* Contact */
         .contact {
@@ -942,7 +949,7 @@
     </section>
 
     <!-- ===== TESTIMONIALS CAROUSEL (three quotes, credits original style) ===== -->
-    <section id="testimonials" class="container" style="padding-bottom: 3rem;">
+    <section id="testimonials" class="container">
         <h2 class="section-title">Testimonials</h2>
         <div class="testimonial-slider">
             <div class="testimonial-slides">
