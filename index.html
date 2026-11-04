@@ -513,6 +513,7 @@
             box-shadow: var(--card-shadow), 0 0 0 1.89px rgba(255,107,74,0.65);
             text-align: center;
             margin: 0;
+            border-top: 6px solid #FF6B4A;
         }
 
         blockquote {
@@ -527,10 +528,10 @@
 
         blockquote:before, blockquote:after {
             content: '"';
-            font-size: 3rem;
+            font-size: 4rem;
             position: absolute;
-            color: var(--accent);
-            opacity: 0.2;
+            color: #FF6B4A;
+            opacity: 0.45;
         }
 
         blockquote:before {
@@ -877,6 +878,7 @@
             <div class="logo">Emma O. Bérat, PhD</div>
             <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
             <div class="nav-links" id="navLinks">
+                <a href="#testimonials">Testimonials</a>
                 <a href="#expertise">Expertise</a>
                 <a href="#process">Process</a>
                 <a href="#contact">Contact</a>
@@ -934,6 +936,59 @@
         </div>
     </section>
 
+    <!-- ===== TESTIMONIALS CAROUSEL (three quotes, credits original style) ===== -->
+    <section id="testimonials" class="container" style="padding-bottom: 3rem;">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-slides">
+                <!-- slide 1: Valerie L. Garver -->
+                <div class="testimonial-slide active">
+                    <div class="testimonial">
+                        <blockquote>"Emma’s developmental editing was invaluable in completing my book manuscript, especially her suggestions for re-ordering material to strengthen my arguments and ensure readability. Emma amplified my own voice and ideas through judicious cuts, questions that demanded greater clarity, and ideas for changes that helped me reach a wider audience than those in my field of expertise. She’s also wonderful to work with—professional, responsive, insightful, and genuinely curious about what she reads. You can tell she enjoys her work. I recommend her highly."</blockquote>
+                        <footer>— Prof. Valerie L. Garver, Northern Illinois University</footer>
+                    </div>
+                </div>
+                <!-- slide 2: Ori Mautner -->
+                <div class="testimonial-slide">
+                    <div class="testimonial">
+                        <blockquote>"I have worked with Emma on line edits of my monograph, forthcoming with University of Pennsylvania Press, and several articles published in peer-reviewed journals, including American Anthropologist and Current Anthropology. Her careful, insightful editing has helped bring clarity to my writing and thinking. Emma is also a pleasure to work with – reliable, timely, and consistently pleasant to interact with. Highly recommended."</blockquote>
+                        <footer>— Dr. Ori Mautner, University of Cambridge</footer>
+                    </div>
+                </div>
+                 <!-- slide 3: Tilman Trausch -->
+                <div class="testimonial-slide">
+                    <div class="testimonial">
+                        <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
+                        <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
+                    </div>
+                </div>
+                <!-- slide 4: Ting Zhang -->
+                <div class="testimonial-slide">
+                    <div class="testimonial">
+                        <blockquote>"Emma is the best editor I have worked with in the past ten years. She provided invaluable support throughout the writing and revision of my doctoral dissertation. Her feedback on my dissertation proposal went far beyond what I would expect from an editor. Her insightful suggestions strengthened the clarity and cohesion of my work, helping me earn approval on my first revision. Her encouragement and timely turnaround kept me on track and helped me meet every deadline. I made it through the dissertation stage with her support, and I cannot imagine how much longer the process would have taken without her. I wholeheartedly recommend Emma to doctoral students in the social sciences, humanities, and education who are looking for a thoughtful, insightful, and dependable editor at any stage of dissertation writing and revision."</blockquote>
+                        <footer>— Dr. Ting Zhang (graduate of School of Education, University of Pittsburgh)</footer>
+                    </div>
+                </div>
+                <!-- slide 5: combined anonymous quotes -->
+                <div class="testimonial-slide">
+                    <div class="testimonial">
+                        <blockquote style="margin-bottom: 1rem;">"I really, really love working with you because it feels like you can read my mind! Your editing skills are superb, and you provide insightful comments and suggestions as to how I could improve my text."</blockquote>
+                        <blockquote style="margin-bottom: 1rem;">"Thanks to [Emma's] incredible service, my grant proposal became more competitive and I was recently informed that I have been selected for funding! [...] I can truly say that she is the best editor that I've ever worked with."</blockquote>
+                        <blockquote style="margin-bottom: 1rem;">"You left the integrity of my writing fully intact but gave it a good polish! Thank you, thank you, thank you!!!"</blockquote>
+                        <footer>— Anonymous clients</footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- navigation arrows -->
+            <button class="slider-btn prev" aria-label="Previous testimonial">&#10094;</button>
+            <button class="slider-btn next" aria-label="Next testimonial">&#10095;</button>
+
+            <!-- dots will be injected by JS -->
+            <div class="slider-dots"></div>
+        </div>
+    </section>
+
     <!-- EXPERTISE SECTION -->
     <section id="expertise" class="expertise">
         <div class="container expertise-content">
@@ -984,58 +1039,6 @@
                     <p>I do not use generative AI in my work: your text is never uploaded to any AI platform, and my feedback and edits come solely from my own assessment.</p>
                 </article>
             </div>
-        </div>
-    </section>
-
-    <!-- ===== TESTIMONIALS CAROUSEL (three quotes, credits original style) ===== -->
-    <section id="testimonials" class="container" style="padding-bottom: 3rem;"> <!-- extra space before contact -->
-        <div class="testimonial-slider">
-            <div class="testimonial-slides">
-                <!-- slide 1: Valerie L. Garver -->
-                <div class="testimonial-slide active">
-                    <div class="testimonial">
-                        <blockquote>"Emma’s developmental editing was invaluable in completing my book manuscript, especially her suggestions for re-ordering material to strengthen my arguments and ensure readability. Emma amplified my own voice and ideas through judicious cuts, questions that demanded greater clarity, and ideas for changes that helped me reach a wider audience than those in my field of expertise. She’s also wonderful to work with—professional, responsive, insightful, and genuinely curious about what she reads. You can tell she enjoys her work. I recommend her highly."</blockquote>
-                        <footer>— Prof. Valerie L. Garver, Northern Illinois University</footer>
-                    </div>
-                </div>
-                <!-- slide 2: Ori Mautner -->
-                <div class="testimonial-slide">
-                    <div class="testimonial">
-                        <blockquote>"I have worked with Emma on line edits of my monograph, forthcoming with University of Pennsylvania Press, and several articles published in peer-reviewed journals, including American Anthropologist and Current Anthropology. Her careful, insightful editing has helped bring clarity to my writing and thinking. Emma is also a pleasure to work with – reliable, timely, and consistently pleasant to interact with. Highly recommended."</blockquote>
-                        <footer>— Dr. Ori Mautner, University of Cambridge</footer>
-                    </div>
-                </div>
-                 <!-- slide 3: Tilman Trausch -->
-                <div class="testimonial-slide">
-                    <div class="testimonial">
-                        <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
-                        <footer>— Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
-                    </div>
-                </div>
-                <!-- slide 4: Ting Zhang -->
-                <div class="testimonial-slide">
-                    <div class="testimonial">
-                        <blockquote>"Emma is the best editor I have worked with in the past ten years. She provided invaluable support throughout the writing and revision of my doctoral dissertation. Her feedback on my dissertation proposal went far beyond what I would expect from an editor. Her insightful suggestions strengthened the clarity and cohesion of my work, helping me earn approval on my first revision. Her encouragement and timely turnaround kept me on track and helped me meet every deadline. I made it through the dissertation stage with her support, and I cannot imagine how much longer the process would have taken without her. I wholeheartedly recommend Emma to doctoral students in the social sciences, humanities, and education who are looking for a thoughtful, insightful, and dependable editor at any stage of dissertation writing and revision."</blockquote>
-                        <footer>— Dr. Ting Zhang (graduate of School of Education, University of Pittsburgh)</footer>
-                    </div>
-                </div>
-                <!-- slide 5: combined anonymous quotes -->
-                <div class="testimonial-slide">
-                    <div class="testimonial">
-                        <blockquote style="margin-bottom: 1rem;">"I really, really love working with you because it feels like you can read my mind! Your editing skills are superb, and you provide insightful comments and suggestions as to how I could improve my text."</blockquote>
-                        <blockquote style="margin-bottom: 1rem;">"Thanks to [Emma's] incredible service, my grant proposal became more competitive and I was recently informed that I have been selected for funding! [...] I can truly say that she is the best editor that I've ever worked with."</blockquote>
-                        <blockquote style="margin-bottom: 1rem;">"You left the integrity of my writing fully intact but gave it a good polish! Thank you, thank you, thank you!!!"</blockquote>
-                        <footer>— Anonymous clients</footer>
-                    </div>
-                </div>
-            </div>
-
-            <!-- navigation arrows -->
-            <button class="slider-btn prev" aria-label="Previous testimonial">&#10094;</button>
-            <button class="slider-btn next" aria-label="Next testimonial">&#10095;</button>
-
-            <!-- dots will be injected by JS -->
-            <div class="slider-dots"></div>
         </div>
     </section>
 
@@ -1162,6 +1165,18 @@
                 createDots();
                 prevBtn.addEventListener('click', prevSlide);
                 nextBtn.addEventListener('click', nextSlide);
+
+                // Auto-rotate; pause on hover/focus, skip if reduced motion is preferred
+                const slider = document.querySelector('.testimonial-slider');
+                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                let timer = null;
+                const start = () => { if (!reduce && !timer) timer = setInterval(nextSlide, 8000); };
+                const stop = () => { clearInterval(timer); timer = null; };
+                slider.addEventListener('mouseenter', stop);
+                slider.addEventListener('mouseleave', start);
+                slider.addEventListener('focusin', stop);
+                slider.addEventListener('focusout', start);
+                start();
             }
         });
     </script>
