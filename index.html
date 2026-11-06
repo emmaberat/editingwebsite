@@ -660,12 +660,13 @@
             text-align: center;
             border-top: 1px solid rgba(46, 52, 112, 0.4);
         }
-        body > footer { position: relative; }
-
-        /* Pride flag stripe across the very bottom of the site */
-        body > footer::after {
+        
+        /* Pride flag stripe pinned to the very bottom of the screen */
+        body::after {
             content: '';
-            position: absolute;
+            position: fixed;
+            z-index: 1000;
+            pointer-events: none;
             left: 0;
             right: 0;
             bottom: 0;
