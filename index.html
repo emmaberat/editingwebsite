@@ -661,15 +661,10 @@
             border-top: 1px solid rgba(46, 52, 112, 0.4);
         }
         
-        /* Pride flag stripe pinned to the very bottom of the screen */
-        body::after {
-            content: '';
-            position: fixed;
-            z-index: 1000;
-            pointer-events: none;
-            left: 0;
-            right: 0;
-            bottom: 0;
+        /* Pride flag stripe: last element on the page, visible only at the very end */
+        .pride-line {
+            display: block;
+            width: 100%;
             height: 3px;
             background: linear-gradient(to right, #E40303 0 16.66%, #FF8C00 0 33.33%, #FFED00 0 50%, #008026 0 66.66%, #004DFF 0 83.33%, #750787 0 100%);
         }
@@ -1091,6 +1086,7 @@
             </div>
         </div>
     </footer>
+    <div class="pride-line" aria-hidden="true"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
