@@ -660,6 +660,18 @@
             text-align: center;
             border-top: 1px solid rgba(46, 52, 112, 0.4);
         }
+        body > footer { position: relative; }
+
+        /* Pride flag stripe across the very bottom of the site */
+        body > footer::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            background: linear-gradient(to right, #E40303 0 16.66%, #FF8C00 0 33.33%, #FFED00 0 50%, #008026 0 66.66%, #004DFF 0 83.33%, #750787 0 100%);
+        }
 
         .credentials {
             margin-top: 1.5rem;
@@ -963,7 +975,7 @@
                 <!-- slide 2: Ori Mautner -->
                 <div class="testimonial-slide">
                     <div class="testimonial">
-                        <blockquote>"I have worked with Emma on line edits of my monograph, forthcoming with University of Pennsylvania Press, and several articles published in peer-reviewed journals, including American Anthropologist and Current Anthropology. Her careful, insightful editing has helped bring clarity to my writing and thinking. Emma is also a pleasure to work with – reliable, timely, and consistently pleasant to interact with. Highly recommended."</blockquote>
+                        <blockquote>"I have worked with Emma on line edits of my monograph, forthcoming with University of Pennsylvania Press, and several articles published in peer-reviewed journals, including American Anthropologist and Current Anthropology. Her careful, insightful editing has helped bring clarity to my writing and thinking. Emma is also a pleasure to work with—reliable, timely, and consistently pleasant to interact with. Highly recommended."</blockquote>
                         <footer>—Dr. Ori Mautner, University of Cambridge</footer>
                     </div>
                 </div>
