@@ -336,10 +336,7 @@
         }
 
         .profile-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
+            display: flow-root; /* photo floats top-left; text wraps around it, then spans the full width */
             margin-top: 3rem;
             text-align: left;
             background: white;
@@ -351,7 +348,8 @@
         
         .headshot-container {
             position: relative;
-            flex-shrink: 0;
+            float: left;
+            margin: 0.25rem 2.5rem 1rem 0;
         }
         
         .headshot {
@@ -489,9 +487,26 @@
         .hero + section.container { padding-top: 1rem; }
         section.container .strength { margin-bottom: 0; }
         #testimonials { padding-bottom: 0; }
-        .expertise { padding: 4rem 0 0; } /* testimonial dots add ~1rem above */
+        #testimonials + section.container { padding-top: 4rem; } /* carousel dots add ~1rem above */
+        .expertise { padding: 5rem 0 0; }
+        .testimonial blockquote p { font-size: inherit; margin-bottom: 1rem; }
+        .testimonial blockquote p:last-child { margin-bottom: 0; }
         .expertise-list:last-child { margin-bottom: 0; }
         #process { padding: 5rem 0 0; }
+
+        /* Lime button linking to the writing page */
+          .nav-links a.nav-writing { background: #DCF74F; color: #103A3E; font-family: 'Inter', sans-serif; font-style: italic; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 1.5rem; border-radius: 3px; outline: 1.5px solid #103A3E; outline-offset: -5px; }
+        .nav-links a.nav-writing:after { display: none; }
+        .nav-links a.nav-writing:hover { background: #EAFB82; }
+        @media (max-width: 768px) { .nav-links a.nav-writing { border-radius: 0; outline-offset: -6px; } }
+
+        /* "A Few Facts" box under the intro box */
+        .facts-card { margin-top: 1.5rem; text-align: left; background: white; padding: 2.5rem; border-radius: var(--border-radius); box-shadow: 0 12px 32px rgba(0,0,0,0.35), 0 0 0 1.89px rgba(255,107,74,0.65); border-left: 4px solid var(--secondary); color: var(--dark-text); }
+        .facts-title { margin: 0 0 1rem; text-align: center; }
+        .facts-list { margin: 0 0 0 1.25rem; padding: 0; text-align: left; }
+        .facts-list li { margin-bottom: 0.35rem; }
+        .facts-list a { color: var(--secondary); font-weight: 600; }
+        .facts-bio { margin-top: 1.25rem; margin-bottom: 0; }
 
         /* Box headings centered; numbered Process steps are a list, so left-aligned */
         .strength h3, .expertise-list h3 { text-align: center; }
@@ -759,9 +774,14 @@
             }
             
             .profile-container {
-                flex-direction: column;
                 text-align: left;
-                gap: 1.5rem;
+            }
+
+            .headshot-container {
+                float: none;
+                display: block;
+                width: 220px;
+                margin: 0 auto 1.5rem;
             }
             
             .menu-toggle {
@@ -773,7 +793,7 @@
                 top: 60px;
                 left: 0;
                 width: 100%;
-                background-color: white;
+                background-color: var(--primary);
                 flex-direction: column;
                 padding: 1rem 0;
                 gap: 0;
@@ -902,6 +922,7 @@
                 <a href="#expertise">Expertise</a>
                 <a href="#process">Process</a>
                 <a href="#contact">Contact</a>
+                <a href="writing.html" class="nav-writing">Writing</a>
                 <a href="https://www.linkedin.com/in/emma-o-b%C3%A9rat-phd-601702234/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
                     <i class="fab fa-linkedin linkedin-icon"></i>
                 </a>
@@ -925,35 +946,26 @@
                     <img src="emma_photo.jpg" alt="Portrait of Emma O. Bérat, PhD, academic editor" class="headshot" loading="eager">
                 </div>
                 <div>
-                    <p>I specialize in developmental and line editing for academic researchers in the social sciences, humanities, and related fields (see list below).</p>
-                    <p>I read as both an expert in your argument's logic and a stand-in for your eventual audience, so that what you intend to say and what readers actually take away from the page match. With a PhD from Columbia and 8+ years of full-time editing, I aim to support you through the process of bringing your ideas to publication: reordering where it helps the argument, cutting where it gets in the way, and raising questions where the reasoning needs to be tighter. I'm especially glad to work with writers who know their research can move the world forward.</p>
-                    <p><a href="https://docs.google.com/document/d/1pv9HcTbj9x_9ddr-J9HISIacm0vpOWvRmyxg0PwgrYI/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: var(--secondary); font-weight: 600;">View my CV</a></p>
+                    <p>I am a developmental and line editor for academic researchers in the social sciences, humanities, and related fields (<a href="#expertise" style="color: var(--secondary); font-weight: 600;">see list below</a>). I love working with writing that advances justice, sustainability, and human rights, and my aim is to help your research have the impact it deserves.</p>
+                    <p>Clear communication plays a significant role in impact&mdash;in capturing publishers’ attention and engaging your audience. My goal is to make sure that what you intend to say matches what readers take away from the page. As an expert reader, I study everything from the logic and structure of your sentences, paragraphs, and argument to rhetorical choices. But you are the topic expert; the argument, voice, and writing are all yours.</p>
+                    <p>There are many ways of collaborating. You can send me your whole text to edit in one go, or we can work iteratively, with me sending you edits in smaller chunks, and you responding to the suggestions as we go. I'm happy to discuss what might work best for you based on your needs.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- WHAT IS DEVELOPMENTAL EDITING -->
-    <section class="container" style="position: relative; z-index: 1;">
-        <article class="strength spacing-tight" style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <h3>What Is Developmental Editing?</h3>
-            <p>Developmental or structural editing is big-picture editing that looks at your argument's structure, logic, and flow. I identify gaps or weak points in your reasoning, suggest how material might be reordered or expanded to make your case more persuasive, and flag where a paragraph's point isn't yet clear from its first sentence. I'm not assessing whether your work deserves to be published (I'm on your side&mdash;and brutally honest), and I'm not a subject expert weighing in on your field. Instead, I work with you to help you convey more clearly what you already mean to the audience you're writing for.</p>
-            <p>Line editing is the complementary, closer-up pass: Once the argument itself is sound, I work sentence by sentence to sharpen your wording, tighten rhythm, and resolve the small ambiguities that can blur an otherwise strong point.</p>
-        </article>
-    </section>
-
-    <!-- KEY DIFFERENTIATORS -->
-    <section class="container">
-        <h2 class="section-title">Why Work With Me</h2>
-        <div class="strengths">
-            <article class="strength">
-                <h3>Firsthand Experience</h3>
-                <p>I've edited over a hundred peer-reviewed articles and numerous books, several of which I've seen through from the book proposal stage to reader reviews and contract. I also hold a PhD from Columbia University, have published my own book with Cambridge University Press, and have served as a reviewer and guest editor for peer-reviewed journals. I've worked with academics, including a Nobel Prize winner, from a wide range of fields, as well as with non-profits and organizations, including the United Nations.</p>
-            </article>
-            <article class="strength">
-                <h3>Multinational Expertise</h3>
-                <p>Originally from New Zealand, I grew up in southeast Asia, studied in the United Kingdom and United States, and currently live in France. I am committed to helping non-native English speakers communicate with confidence, clarity, and authenticity. I am comfortable with American and British language conventions.</p>
-            </article>   
+            <div class="facts-card">
+                <h3 class="facts-title">A Few Facts</h3>
+                <ul class="facts-list">
+                    <li>PhD in English and Comparative Literature, Columbia University (2016)</li>
+                    <li>8+ years of full-time professional editing</li>
+                    <li>Edited 100+ articles for peer-reviewed journals</li>
+                    <li>Edited numerous books, several from the book proposal stage through reader reviews to contract</li>
+                    <li>Worked with academics from a wide range of fields, including a Nobel Prize winner, as well as non-profits and organizations such as the United Nations</li>
+                    <li>Reviewer and guest editor for peer-reviewed journals</li>
+                    <li>Member of the <a href="https://community.the-efa.org/members/public_profile.asp?id=80972192" target="_blank" rel="noopener noreferrer">Editorial Freelancers Association (EFA)</a></li>
+                    <li><a href="https://docs.google.com/document/d/1pv9HcTbj9x_9ddr-J9HISIacm0vpOWvRmyxg0PwgrYI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Full CV</a></li>
+                </ul>
+                <p class="facts-bio">Originally from New Zealand, I grew up in southeast Asia, studied in the United Kingdom and United States, and currently live in France. I am committed to helping non-native English speakers communicate with confidence, clarity, and authenticity.</p>
+            </div>
         </div>
     </section>
 
@@ -965,37 +977,37 @@
                 <!-- slide 1: Valerie L. Garver -->
                 <div class="testimonial-slide active">
                     <div class="testimonial">
-                        <blockquote>"Emma’s developmental editing was invaluable in completing my book manuscript, especially her suggestions for re-ordering material to strengthen my arguments and ensure readability. Emma amplified my own voice and ideas through judicious cuts, questions that demanded greater clarity, and ideas for changes that helped me reach a wider audience than those in my field of expertise. She’s also wonderful to work with—professional, responsive, insightful, and genuinely curious about what she reads. You can tell she enjoys her work. I recommend her highly."</blockquote>
+                        <blockquote><p>Emma’s developmental editing was invaluable in completing my book manuscript, especially her suggestions for re-ordering material to strengthen my arguments and ensure readability. Emma amplified my own voice and ideas through judicious cuts, questions that demanded greater clarity, and ideas for changes that helped me reach a wider audience than those in my field of expertise.</p><p>She’s also wonderful to work with—professional, responsive, insightful, and genuinely curious about what she reads. You can tell she enjoys her work. I recommend her highly.</p></blockquote>
                         <footer>—Prof. Valerie L. Garver, Northern Illinois University</footer>
                     </div>
                 </div>
                 <!-- slide 2: Ori Mautner -->
                 <div class="testimonial-slide">
                     <div class="testimonial">
-                        <blockquote>"I have worked with Emma on line edits of my monograph, forthcoming with University of Pennsylvania Press, and several articles published in peer-reviewed journals, including American Anthropologist and Current Anthropology. Her careful, insightful editing has helped bring clarity to my writing and thinking. Emma is also a pleasure to work with—reliable, timely, and consistently pleasant to interact with. Highly recommended."</blockquote>
+                        <blockquote><p>I have worked with Emma on line edits of my monograph, forthcoming with University of Pennsylvania Press, and several articles published in peer-reviewed journals, including American Anthropologist and Current Anthropology. Her careful, insightful editing has helped bring clarity to my writing and thinking.</p><p>Emma is also a pleasure to work with—reliable, timely, and consistently pleasant to interact with. Highly recommended.</p></blockquote>
                         <footer>—Dr. Ori Mautner, University of Cambridge</footer>
                     </div>
                 </div>
                  <!-- slide 3: Tilman Trausch -->
                 <div class="testimonial-slide">
                     <div class="testimonial">
-                        <blockquote>"I've been grateful to have Emma's help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas. She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find."</blockquote>
+                        <blockquote><p>I’ve been grateful to have Emma’s help editing my English-language articles for several peer-reviewed journals, as well as other academic items over the years. She is reliable, efficient, and polishes my work to help it better express my ideas.</p><p>She has also helped the colleagues I recommended her to from a wide variety of academic fields. Emma is always able to strengthen a text, even without being an expert on its subject, which is a talent rare to find.</p></blockquote>
                         <footer>—Dr. Tilman Trausch, University of Bonn and Deutsche Angestellten Akademie</footer>
                     </div>
                 </div>
                 <!-- slide 4: Ting Zhang -->
                 <div class="testimonial-slide">
                     <div class="testimonial">
-                        <blockquote>"Emma is the best editor I have worked with in the past ten years. She provided invaluable support throughout the writing and revision of my doctoral dissertation. Her feedback on my dissertation proposal went far beyond what I would expect from an editor. Her insightful suggestions strengthened the clarity and cohesion of my work, helping me earn approval on my first revision. Her encouragement and timely turnaround kept me on track and helped me meet every deadline. I made it through the dissertation stage with her support, and I cannot imagine how much longer the process would have taken without her. I wholeheartedly recommend Emma to doctoral students in the social sciences, humanities, and education who are looking for a thoughtful, insightful, and dependable editor at any stage of dissertation writing and revision."</blockquote>
+                        <blockquote><p>Emma is the best editor I have worked with in the past ten years. She provided invaluable support throughout the writing and revision of my doctoral dissertation. Her feedback on my dissertation proposal went far beyond what I would expect from an editor.</p><p>Her insightful suggestions strengthened the clarity and cohesion of my work, helping me earn approval on my first revision. Her encouragement and timely turnaround kept me on track and helped me meet every deadline. I made it through the dissertation stage with her support, and I cannot imagine how much longer the process would have taken without her.</p><p>I wholeheartedly recommend Emma to doctoral students in the social sciences, humanities, and education who are looking for a thoughtful, insightful, and dependable editor at any stage of dissertation writing and revision.</p></blockquote>
                         <footer>—Dr. Ting Zhang (graduate of School of Education, University of Pittsburgh)</footer>
                     </div>
                 </div>
                 <!-- slide 5: combined anonymous quotes -->
                 <div class="testimonial-slide">
                     <div class="testimonial">
-                        <blockquote style="margin-bottom: 1rem;">"I really, really love working with you because it feels like you can read my mind! Your editing skills are superb, and you provide insightful comments and suggestions as to how I could improve my text."</blockquote>
-                        <blockquote style="margin-bottom: 1rem;">"Thanks to [Emma's] incredible service, my grant proposal became more competitive and I was recently informed that I have been selected for funding! [...] I can truly say that she is the best editor that I've ever worked with."</blockquote>
-                        <blockquote style="margin-bottom: 1rem;">"You left the integrity of my writing fully intact but gave it a good polish! Thank you, thank you, thank you!!!"</blockquote>
+                        <blockquote style="margin-bottom: 1rem;">I really, really love working with you because it feels like you can read my mind! Your editing skills are superb, and you provide insightful comments and suggestions as to how I could improve my text.</blockquote>
+                        <blockquote style="margin-bottom: 1rem;">Thanks to [Emma's] incredible service, my grant proposal became more competitive and I was recently informed that I have been selected for funding! [...] I can truly say that she is the best editor that I've ever worked with.</blockquote>
+                        <blockquote style="margin-bottom: 1rem;">You left the integrity of my writing fully intact but gave it a good polish! Thank you, thank you, thank you!!!</blockquote>
                         <footer>—Anonymous clients</footer>
                     </div>
                 </div>
@@ -1008,6 +1020,15 @@
             <!-- dots will be injected by JS -->
             <div class="slider-dots"></div>
         </div>
+    </section>
+
+    <!-- WHAT IS DEVELOPMENTAL EDITING -->
+    <section class="container" style="position: relative; z-index: 1;">
+        <article class="strength spacing-tight" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <h3>What Is Developmental Editing?</h3>
+            <p>Developmental or structural editing is big-picture editing that looks at your argument's structure, logic, and flow. I identify gaps or weak points in your reasoning, suggest how material might be reordered or expanded to make your case more persuasive, and flag where a paragraph's point isn't yet clear from its first sentence. I'm not assessing whether your work deserves to be published (I'm on your side&mdash;and very honest!), and I'm not a subject expert weighing in on your field. Instead, I work with you to help you convey more clearly what you already mean to the audience you're writing for.</p>
+            <p>Line editing is the complementary, closer-up pass: Once the argument itself is sound, I work sentence by sentence to sharpen your wording, tighten rhythm, and resolve the small ambiguities that can blur an otherwise strong point.</p>
+        </article>
     </section>
 
     <!-- EXPERTISE SECTION -->
@@ -1048,7 +1069,7 @@
                     <p>If the cost is prohibitive, and you are a non-profit or have a project you believe the world needs, please reach out to discuss!</p>
                     <p><em>I typically edit 1000–2000+ words an hour, depending on the type of editing required and state of the draft.</em></p>
 
-                    <h3 style="margin: 1.5rem 0 0.75rem;">3. An Efficient Turnaround</h3>
+                    <h3 style="margin: 1.5rem 0 0.75rem;">3. Turnaround</h3>
                     <p>For documents under 10,000 words, I can often return edits within one week or less. If you need an edit urgently, get in touch; I respond quickly and will do what I can.</p>
                 </article>
             </div>
